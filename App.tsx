@@ -3,10 +3,11 @@ import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import {loadAsync, useFonts } from 'expo-font';
 import { fonts } from './typography';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Home from './components/Home';
+import { createNativeStackNavigator, NativeStackScreenProps } from '@react-navigation/native-stack';
+import Home from './components/screens/Home';
 import * as SplashScreen from 'expo-splash-screen';
 import { useCallback, useState } from 'react';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 
 //Setup
@@ -14,6 +15,13 @@ import { useCallback, useState } from 'react';
 const Stack = createNativeStackNavigator();
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync();
+
+//Set up type definitions for navigation
+type RootStackParamList = {
+  Home: undefined;
+};
+
+export type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -33,10 +41,12 @@ export default function App() {
   }
 
   return (
-    <NavigationContainer onReady={onLayoutRootView}>
-      <Stack.Navigator initialRouteName='Home'>
-        <Stack.Screen name='Home' component={Home} options={{headerShown:false}}></Stack.Screen>
-      </Stack.Navigator>
-    </NavigationContainer>
+    <SafeAreaProvider>
+      <NavigationContainer onReady={onLayoutRootView}>
+        <Stack.Navigator initialRouteName='Home'>
+          <Stack.Screen name='Home' component={Home} options={{headerShown:false}}></Stack.Screen>
+        </Stack.Navigator>
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 }
