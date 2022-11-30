@@ -30,7 +30,7 @@ export default function Home({ navigation }:Props) {
           <TouchableOpacity style={styles.icon}>
             <Image style={styles.icon} resizeMode="contain" source={require("./../../assets/images/friends_icon.png")}></Image>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.icon}>
+          <TouchableOpacity onPress={()=>{navigation.navigate("History")}} style={styles.icon}>
             <Image style={styles.icon} resizeMode="contain" source={require("./../../assets/images/history_icon.png")}></Image>
           </TouchableOpacity>
         </View>

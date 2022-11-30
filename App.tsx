@@ -8,6 +8,7 @@ import Home from './components/screens/Home';
 import * as SplashScreen from 'expo-splash-screen';
 import { useCallback, useState } from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import History from './components/screens/History';
 
 
 //Setup
@@ -19,7 +20,14 @@ SplashScreen.preventAutoHideAsync();
 //Set up type definitions for navigation
 type RootStackParamList = {
   Home: undefined;
+  History: undefined;
 };
+
+declare global {
+  namespace ReactNavigation {
+    interface RootParamList extends RootStackParamList {}
+  }
+}
 
 export type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
@@ -44,7 +52,8 @@ export default function App() {
     <SafeAreaProvider>
       <NavigationContainer onReady={onLayoutRootView}>
         <Stack.Navigator initialRouteName='Home'>
-          <Stack.Screen name='Home' component={Home} options={{headerShown:false}}></Stack.Screen>
+          <Stack.Screen name='Home' component={Home} options={{ headerShown: false }}></Stack.Screen>
+          <Stack.Screen name='History' component={History} options={{ headerShown: false }}></Stack.Screen>
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

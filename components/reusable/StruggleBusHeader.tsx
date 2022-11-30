@@ -1,12 +1,19 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Props } from "../../App";
 import { theme } from "../../theme";
 import { fonts } from "../../typography";
+import { useNavigation } from '@react-navigation/native';
+
 
 export default function StruggleBusHeader() {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.topLevel}>
       <View style={styles.secondLevel}>
-        <Image style={styles.bus} resizeMode="contain" source={require("./../../assets/images/bus.png")}></Image>
+        <TouchableOpacity style={styles.bus} onPress={()=>navigation.navigate("Home")}>
+          <Image style={styles.bus} resizeMode="contain" source={require("./../../assets/images/bus.png")}></Image>
+        </TouchableOpacity>
         <Text style={fonts.header}>Struggle Bus</Text>
         <View style={styles.placeholder}></View>
       </View>
