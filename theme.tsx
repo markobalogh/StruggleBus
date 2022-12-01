@@ -1,6 +1,7 @@
 export const theme = {
   colors: {
     action: '#54A894',
+    notselected: '#A1CEB8',
     greenLight: '#84DB82',
     yellowLight: '#FFD976',
     redLight: '#FC4949',

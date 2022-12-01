@@ -6,33 +6,26 @@ import StruggleBusHeader from "../reusable/StruggleBusHeader";
 import { NavigationProp } from '@react-navigation/native'
 import { Props } from "../../App";
 import ActionButton from "../reusable/ActionButton";
+import BottomTextInput from "../reusable/BottomTextInput";
 
 
-export default function Home({ navigation }:Props) {
+export default function CheckInScreen({ navigation }:Props) {
   return (
     <SafeAreaView style={styles.topLevel}>
-      <StruggleBusHeader></StruggleBusHeader>
       <View style={styles.mainContent}>
-        <View style={styles.leftIconContainer}>
-          <TouchableOpacity onPress={()=>{console.log("Will navigate to settings")}} style={styles.icon}>
-            <Image style={styles.icon} resizeMode="contain" source={require("./../../assets/images/settings_icon.png")}></Image>
-          </TouchableOpacity>
-        </View>
         <View style={styles.centerContainer}>
+
           <View style={styles.companionContainer}>
-            <Image style={styles.companion} resizeMode="contain" source={require("./../../assets/images/companions/cat_circle.png")}></Image>
+            <Image style={styles.companion1} resizeMode="contain" source={require("./../../assets/images/companions/cat_circle.png")}></Image>
           </View>
-          <Text style={fonts.header}>Hi, Abena 👑 </Text>
-          <Text style={[fonts.body, {textAlign:'center'}]}>Check in with your virtual companion to write down your struggles</Text>
-          <ActionButton onPress={()=>{navigation.navigate("CheckInScreen")}} title="Check In"></ActionButton>
-        </View>
-        <View style={styles.rightIconContainer}>
-          <TouchableOpacity style={styles.icon}>
-            <Image style={styles.icon} resizeMode="contain" source={require("./../../assets/images/friends_icon.png")}></Image>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={()=>{navigation.navigate("History")}} style={styles.icon}>
-            <Image style={styles.icon} resizeMode="contain" source={require("./../../assets/images/history_icon.png")}></Image>
-          </TouchableOpacity>
+
+          <Text style={fonts.header}>What's going on today?</Text>
+          <View style={styles.companionContainer}>
+            <Image style={styles.companion} resizeMode="contain" source={require("./../../assets/images/notebook.png")}></Image>
+          </View>
+
+          <BottomTextInput onPress={()=>{}} title=""></BottomTextInput>
+
         </View>
       </View>
     </SafeAreaView>
@@ -77,9 +70,14 @@ const styles = StyleSheet.create({
   companionContainer: {
     aspectRatio:1,
     alignSelf:'stretch',
+    alignItems: 'center',
   },
   companion: {
     height: '100%',
     width:'100%',
-  }
+  },
+  companion1: {
+    height: '90%',
+    width:'90%',
+  },
 })

@@ -5,17 +5,22 @@ import { theme } from "../../theme";
 import { fonts } from "../../typography";
 import StruggleBusHeader from "../reusable/StruggleBusHeader";
 import ActionButtonHistory from "../reusable/ActionButtonHistory";
-import ActionButton from "../reusable/ActionButton";
+import PeriodFilterButton from "../reusable/PeriodFilterButton";
 
 export default function History({ navigation }:Props) {
   return (
     <SafeAreaView style={styles.topLevel}>
       <StruggleBusHeader></StruggleBusHeader>
-      <Text style={fonts.handwriting}>Abena, This is where you put your code!!!</Text>
       <View style={styles.kudosMoodContainer}>
         <ActionButtonHistory onPress={()=>{}} title="Kudos"></ActionButtonHistory>
         <ActionButtonHistory onPress={()=>{}} title="Mood"></ActionButtonHistory> 
       </View>
+      <View style={styles.kudosMoodContainer}>
+        <PeriodFilterButton onPress={()=>{}} title="This week"></PeriodFilterButton>
+        <PeriodFilterButton onPress={()=>{}} title="This month"></PeriodFilterButton> 
+        <PeriodFilterButton onPress={()=>{}} title="This year"></PeriodFilterButton> 
+      </View>
+
       
       {/* <ActionButton onPress={()=>{}} title="Check In"></ActionButton> */}
     </SafeAreaView>
@@ -33,5 +38,6 @@ const styles = StyleSheet.create({
   kudosMoodContainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
+    padding: theme.padding0,
   },
 });

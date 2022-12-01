@@ -22,5 +22,9 @@ export const fonts = StyleSheet.create({
   header3: {
     fontFamily: 'Nunito-Sans-ExtraBold',
     fontSize:20
+  },
+  header4: {
+    fontFamily: 'Nunito-Sans-ExtraBold',
+    fontSize:15
   }
 })
