@@ -24,7 +24,7 @@ export default function CheckInScreen({ navigation }:Props) {
             <Image style={styles.companion} resizeMode="contain" source={require("./../../assets/images/notebook.png")}></Image>
           </View>
 
-          <BottomTextInput onPress={()=>{}} title=""></BottomTextInput>
+          <BottomTextInput onPress={()=>{navigation.navigate("TypeCheckInModal")}} title=""></BottomTextInput>
 
         </View>
       </View>

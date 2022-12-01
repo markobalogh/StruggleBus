@@ -10,6 +10,7 @@ import { useCallback, useState } from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import History from './components/screens/History';
 import CheckInScreen from './components/screens/CheckInScreen';
+import TypeCheckInModal from './components/screens/TypeCheckInModal';
 
 
 //Setup
@@ -56,6 +57,8 @@ export default function App() {
         <Stack.Navigator initialRouteName='Home'>
           <Stack.Screen name='Home' component={Home} options={{ headerShown: false }}></Stack.Screen>
           <Stack.Screen name='CheckInScreen' component={CheckInScreen} options={{ headerShown: false }}></Stack.Screen>
+          <Stack.Screen  options={{ presentation: "transparentModal", headerShown: false }} name="TypeCheckInModal" component={TypeCheckInModal} ></Stack.Screen>
+          {/* <Stack.Modal name='TypeCheckInModal' component={TypeCheckInModal} options={{ headerShown: false }}></Stack.Modal> */}
           <Stack.Screen name='History' component={History} options={{ headerShown: false }}></Stack.Screen>
         </Stack.Navigator>
       </NavigationContainer>
