@@ -8,36 +8,61 @@ import { NavigationProp } from '@react-navigation/native'
 import { Props } from "../../App";
 import ActionButton from "../reusable/ActionButton";
 import BottomTextInput from "../reusable/BottomTextInput";
+import EmojiSelector from "../reusable/EmojiSelector";
+import ActionButtonHistory from "../reusable/ActionButtonHistory";
 
 
 export default function CheckInScreen({ navigation }:Props) {
   const [value, onChangeText] = useState('');
 
+  const [feedPetVisible, setFeedPetVisible] = useState(false);
+
+  const [entrySubmitted, setEntrySubmitted] = useState(false);
+
   const textInputRef = useRef<TextInput>();
 
   return (
     <SafeAreaView style={styles.topLevel}>
-      <Pressable style={styles.fullSize} onPress={()=>{textInputRef.current.blur()}}>
-        <KeyboardAvoidingView style={styles.kbav} behavior="position" contentContainerStyle={styles.kbav}>
+      <Pressable style={styles.fullSize} onPress={()=>{if (!entrySubmitted) textInputRef.current.blur()}}>
+        <KeyboardAvoidingView style={styles.kbav} behavior="position" contentContainerStyle={styles.kbav} keyboardVerticalOffset={40}>
           <View style={styles.centerContainer}>
             <View style={styles.companionContainer}>
               <Image style={styles.fullSize} resizeMode="contain" source={require("./../../assets/images/companions/cat_circle.png")}></Image>
             </View>
-            <Text style={fonts.header}>What's going on today?</Text>
-            <View style={[styles.companionContainer, { aspectRatio: 770 / 462 }]}>
-              <Pressable style={styles.fullSize} onPress={()=>{textInputRef.current.focus()}}>
-                <ImageBackground style={[styles.fullSize, styles.notebook]} resizeMode="stretch" source={require("./../../assets/images/notebook.png")}>
-                  <TextInput style={[styles.notebookText, fonts.handwriting]}
-                    onChangeText={text => onChangeText(text)}
-                    value={value}
-                    keyboardType="default"
-                    multiline={true}
-                    scrollEnabled={true}
-                    ref={textInputRef}
-                  />
-                </ImageBackground>
-              </Pressable>
-            </View>
+            {
+              entrySubmitted ? <Text style={fonts.header}>Thanks for checking in!</Text>
+                :
+              <Text style={fonts.header}>What's going on today?</Text>
+            }
+            {
+              entrySubmitted ? null
+                :
+              <View style={[styles.companionContainer, { aspectRatio: 770 / 462 }]}>
+                <Pressable style={styles.fullSize} onPress={()=>{textInputRef.current.focus()}}>
+                  <ImageBackground style={[styles.fullSize, styles.notebook]} resizeMode="stretch" source={require("./../../assets/images/notebook.png")}>
+                    <TextInput style={[styles.notebookText, fonts.handwriting]}
+                      onChangeText={text => onChangeText(text)}
+                      value={value}
+                      keyboardType="default"
+                      multiline={true}
+                      scrollEnabled={true}
+                      ref={textInputRef}
+                        placeholder={"Weather changes been giving me headaches"}
+                    />
+                  </ImageBackground>
+                </Pressable>
+              </View>
+            }
+            
+            {
+              entrySubmitted ? null : <EmojiSelector style={styles.emojiSelector} onSelect={() => setFeedPetVisible(true)}></EmojiSelector>
+            }
+            {
+              feedPetVisible && (!entrySubmitted) ? <ActionButton title="Feed Pet" onPress={() => {setEntrySubmitted(true)}}></ActionButton> : null
+            }
+            {
+              entrySubmitted ? <ActionButton title="Reach Out" onPress={()=>{navigation.navigate("Home")}}></ActionButton> : null
+            }
           </View>
         </KeyboardAvoidingView>
       </Pressable>
@@ -70,6 +95,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent:'space-evenly',
     padding: theme.padding1,
+    paddingBottom:0,
     // backgroundColor:'green',
   },
   icon: {
@@ -97,5 +123,8 @@ const styles = StyleSheet.create({
     left: '29%',
     top: '6%',
     lineHeight:25,
+  },
+  emojiSelector: {
+    alignSelf:'stretch',
   }
 })
