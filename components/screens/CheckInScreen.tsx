@@ -1,5 +1,5 @@
-import { Image, StyleSheet, Text, View, TouchableOpacity, TextInput } from "react-native";
-import { useState } from "react";
+import { Image, StyleSheet, Text, View, TouchableOpacity, TextInput, ImageBackground, KeyboardAvoidingView, Pressable } from "react-native";
+import { useRef, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { theme } from "../../theme";
 import { fonts } from "../../typography";
@@ -8,42 +8,64 @@ import { NavigationProp } from '@react-navigation/native'
 import { Props } from "../../App";
 import ActionButton from "../reusable/ActionButton";
 import BottomTextInput from "../reusable/BottomTextInput";
+import EmojiSelector from "../reusable/EmojiSelector";
+import ActionButtonHistory from "../reusable/ActionButtonHistory";
 
 
 export default function CheckInScreen({ navigation }:Props) {
-  const [value, onChangeText] = useState('placeholder text');
+  const [value, onChangeText] = useState('');
+
+  const [feedPetVisible, setFeedPetVisible] = useState(false);
+
+  const [entrySubmitted, setEntrySubmitted] = useState(false);
+
+  const textInputRef = useRef<TextInput>();
+
   return (
     <SafeAreaView style={styles.topLevel}>
-      <View style={styles.mainContent}>
-        <View style={styles.centerContainer}>
-
-          <View style={styles.companionContainer}>
-            <Image style={styles.companion1} resizeMode="contain" source={require("./../../assets/images/companions/cat_circle.png")}></Image>
+      <Pressable style={styles.fullSize} onPress={()=>{if (!entrySubmitted) textInputRef.current.blur()}}>
+        <KeyboardAvoidingView style={styles.kbav} behavior="position" contentContainerStyle={styles.kbav} keyboardVerticalOffset={40}>
+          <View style={styles.centerContainer}>
+            <View style={styles.companionContainer}>
+              <Image style={styles.fullSize} resizeMode="contain" source={require("./../../assets/images/companions/cat_circle.png")}></Image>
+            </View>
+            {
+              entrySubmitted ? <Text style={fonts.header}>Thanks for checking in!</Text>
+                :
+              <Text style={fonts.header}>What's going on today?</Text>
+            }
+            {
+              entrySubmitted ? null
+                :
+              <View style={[styles.companionContainer, { aspectRatio: 770 / 462 }]}>
+                <Pressable style={styles.fullSize} onPress={()=>{textInputRef.current.focus()}}>
+                  <ImageBackground style={[styles.fullSize, styles.notebook]} resizeMode="stretch" source={require("./../../assets/images/notebook.png")}>
+                    <TextInput style={[styles.notebookText, fonts.handwriting]}
+                      onChangeText={text => onChangeText(text)}
+                      value={value}
+                      keyboardType="default"
+                      multiline={true}
+                      scrollEnabled={true}
+                      ref={textInputRef}
+                        placeholder={"Weather changes been giving me headaches"}
+                    />
+                  </ImageBackground>
+                </Pressable>
+              </View>
+            }
+            
+            {
+              entrySubmitted ? null : <EmojiSelector style={styles.emojiSelector} onSelect={() => setFeedPetVisible(true)}></EmojiSelector>
+            }
+            {
+              feedPetVisible && (!entrySubmitted) ? <ActionButton title="Feed Pet" onPress={() => {setEntrySubmitted(true)}}></ActionButton> : null
+            }
+            {
+              entrySubmitted ? <ActionButton title="Reach Out" onPress={()=>{navigation.navigate("Home")}}></ActionButton> : null
+            }
           </View>
-
-          <Text style={fonts.header}>What's going on today?</Text>
-          <View style={styles.companionContainer}>
-            <Image style={styles.companion} resizeMode="contain" source={require("./../../assets/images/notebook.png")}></Image>
-          </View>
-
-          <View
-          style={{
-          backgroundColor: 'red',
-          borderBottomColor: '#000000',
-          borderBottomWidth: 1,
-          }}>
-            <TextInput
-            onChangeText={text => onChangeText(text)}
-            value={value}
-            style={{padding: 10}}
-            keyboardType="default"
-            />
-          </View>
-
-          {/* <BottomTextInput onPress={()=>{navigation.navigate("TypeCheckInModal")}} title=""></BottomTextInput> */}
-
-        </View>
-      </View>
+        </KeyboardAvoidingView>
+      </Pressable>
     </SafeAreaView>
   )
 }
@@ -56,12 +78,8 @@ const styles = StyleSheet.create({
     alignItems: 'stretch',
     backgroundColor:theme.colors.background0
   },
-  mainContent: {
+  kbav: {
     flex: 1,
-    backgroundColor: theme.colors.background0,
-    padding: theme.padding1,
-    flexDirection: 'row',
-    alignItems:'stretch',
   },
   leftIconContainer: {
     flexDirection: 'column',
@@ -77,6 +95,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent:'space-evenly',
     padding: theme.padding1,
+    paddingBottom:0,
+    // backgroundColor:'green',
   },
   icon: {
     height: theme.iconSize,
@@ -86,14 +106,25 @@ const styles = StyleSheet.create({
   companionContainer: {
     aspectRatio:1,
     alignSelf:'stretch',
-    alignItems: 'center',
+    // backgroundColor:'yellow',
   },
-  companion: {
+  notebook: {
+    // backgroundColor: 'blue',
+    aspectRatio: 770 / 462,
+    maxWidth:'100%',
+  },
+  fullSize: {
     height: '100%',
     width:'100%',
   },
-  companion1: {
-    height: '90%',
-    width:'90%',
+  notebookText: {
+    // backgroundColor: 'red',
+    width: '60%',
+    left: '29%',
+    top: '6%',
+    lineHeight:25,
   },
+  emojiSelector: {
+    alignSelf:'stretch',
+  }
 })
