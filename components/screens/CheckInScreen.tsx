@@ -1,4 +1,5 @@
-import { Image, StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { Image, StyleSheet, Text, View, TouchableOpacity, TextInput } from "react-native";
+import { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { theme } from "../../theme";
 import { fonts } from "../../typography";
@@ -10,6 +11,7 @@ import BottomTextInput from "../reusable/BottomTextInput";
 
 
 export default function CheckInScreen({ navigation }:Props) {
+  const [value, onChangeText] = useState('placeholder text');
   return (
     <SafeAreaView style={styles.topLevel}>
       <View style={styles.mainContent}>
@@ -24,7 +26,21 @@ export default function CheckInScreen({ navigation }:Props) {
             <Image style={styles.companion} resizeMode="contain" source={require("./../../assets/images/notebook.png")}></Image>
           </View>
 
-          <BottomTextInput onPress={()=>{navigation.navigate("TypeCheckInModal")}} title=""></BottomTextInput>
+          <View
+          style={{
+          backgroundColor: 'red',
+          borderBottomColor: '#000000',
+          borderBottomWidth: 1,
+          }}>
+            <TextInput
+            onChangeText={text => onChangeText(text)}
+            value={value}
+            style={{padding: 10}}
+            keyboardType="default"
+            />
+          </View>
+
+          {/* <BottomTextInput onPress={()=>{navigation.navigate("TypeCheckInModal")}} title=""></BottomTextInput> */}
 
         </View>
       </View>

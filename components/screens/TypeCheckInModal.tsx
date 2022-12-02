@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Alert, Modal, StyleSheet, Text, TouchableOpacity, Pressable, View } from "react-native";
+import { Image, Alert, Modal, StyleSheet, Text, TouchableOpacity, Pressable, View } from "react-native";
 import { theme } from "../../theme";
 import { fonts } from "../../typography";
 import { Props } from "../../App";
@@ -13,7 +13,7 @@ export default function TypeCheckInModal({ navigation }:Props) {
         <Modal
             animationType="slide"
             presentationStyle="overFullScreen"
-            transparent={true}
+            // transparent={true}
             visible={modalVisible}
             onRequestClose={() => {
             Alert.alert("Modal has been closed.");
@@ -21,23 +21,11 @@ export default function TypeCheckInModal({ navigation }:Props) {
             }}
         >
             <View style={styles.centeredView}>
-            <View style={styles.modalView}>
-                <Text style={styles.modalText}>Hello World!</Text>
-                <Pressable
-                style={[styles.button, styles.buttonClose]}
-                onPress={() => setModalVisible(!modalVisible)}
-                >
-                <Text style={styles.textStyle}>Hide Modal</Text>
-                </Pressable>
+            <View style={styles.companionContainer}>
+              <Image style={styles.companion} resizeMode="contain" source={require("./../../assets/images/notebook.png")}></Image>
             </View>
             </View>
         </Modal>
-        <Pressable
-            style={[styles.button, styles.buttonOpen]}
-            onPress={() => setModalVisible(true)}
-        >
-            <Text style={styles.textStyle}>Show Modal</Text>
-        </Pressable>
         </View>
     );
 };
@@ -49,7 +37,7 @@ const styles = StyleSheet.create({
       alignItems: "center",
     //   marginTop: 22,
       backgroundColor: 'rgba(52, 52, 52, 0.8)',
-    //   backfaceVisibility: 'visible',
+      backfaceVisibility: 'visible',
 
     },
     modalView: {
@@ -58,7 +46,7 @@ const styles = StyleSheet.create({
       borderRadius: 20,
       padding: 35,
       alignItems: "center",
-      shadowColor: "#000",
+      // shadowColor: "#000",
       shadowOffset: {
         width: 0,
         height: 2
@@ -67,16 +55,15 @@ const styles = StyleSheet.create({
       shadowRadius: 4,
       elevation: 5
     },
-    button: {
-      borderRadius: 20,
-      padding: 10,
-      elevation: 2
+    companion: {
+      height: '100%',
+      width:'100%',
     },
-    buttonOpen: {
-      backgroundColor: "#F194FF",
-    },
-    buttonClose: {
-      backgroundColor: "#2196F3",
+    companionContainer: {
+      aspectRatio:1,
+      backgroundColor: 'red',
+      alignSelf:'stretch',
+      alignItems: 'center',
     },
     textStyle: {
       color: "white",
