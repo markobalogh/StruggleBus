@@ -16,7 +16,6 @@ export default function BottomTextInput({onPress,title,style}:BottomTextInputPro
   return (
     <TouchableOpacity onPress={onPress} style={[style,styles.container]}>
       
-      
       <Ionicons name="happy-outline" size={22} color="black" /> 
       <Text style={[fonts.header4, styles.title]}>Write a message</Text>
       <Ionicons name="attach-outline" size={22} color="black" /> 
