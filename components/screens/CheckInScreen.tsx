@@ -47,7 +47,7 @@ export default function CheckInScreen({ navigation }:Props) {
                       multiline={true}
                       scrollEnabled={true}
                       ref={textInputRef}
-                        placeholder={"Weather changes been giving me headaches"}
+                      placeholder={"Write whatever you're feeling here..."}
                     />
                   </ImageBackground>
                 </Pressable>
