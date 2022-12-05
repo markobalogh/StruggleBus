@@ -61,7 +61,7 @@ export default function CheckInScreen({ navigation }:Props) {
               feedPetVisible && (!entrySubmitted) ? <ActionButton title="Feed Pet" onPress={() => {setEntrySubmitted(true)}}></ActionButton> : null
             }
             {
-              entrySubmitted ? <ActionButton title="Reach Out" onPress={()=>{navigation.navigate("Home")}}></ActionButton> : null
+              entrySubmitted ? <ActionButton title="Reach Out" onPress={()=>{navigation.navigate("FriendsScreen")}}></ActionButton> : null
             }
           </View>
         </KeyboardAvoidingView>
