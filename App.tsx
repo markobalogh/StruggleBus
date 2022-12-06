@@ -11,6 +11,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import History from './components/screens/History';
 import CheckInScreen from './components/screens/CheckInScreen';
 import TypeCheckInModal from './components/screens/TypeCheckInModal';
+import Friends from './components/screens/Friends';
 
 
 //Setup
@@ -24,6 +25,7 @@ type RootStackParamList = {
   Home: undefined;
   History: undefined;
   CheckInScreen: undefined;
+  Friends: undefined;
 };
 
 declare global {
@@ -60,6 +62,7 @@ export default function App() {
           <Stack.Screen  options={{ presentation: "transparentModal", headerShown: false }} name="TypeCheckInModal" component={TypeCheckInModal} ></Stack.Screen>
           {/* <Stack.Modal name='TypeCheckInModal' component={TypeCheckInModal} options={{ headerShown: false }}></Stack.Modal> */}
           <Stack.Screen name='History' component={History} options={{ headerShown: false }}></Stack.Screen>
+          <Stack.Screen name='Friends' component={Friends} options={{ headerShown: false }}></Stack.Screen>
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
