@@ -6,6 +6,7 @@ import { Props } from "../../App";
 import ContactList from '../reusable/ContactList';
 import { SafeAreaView } from "react-native-safe-area-context";
 import StruggleBusHeader from "../reusable/StruggleBusHeader";
+import ActionButton from '../reusable/ActionButton';
 
 
 
@@ -54,11 +55,13 @@ export default function ContactsScreen({ navigation }:Props) {
   return (
     <SafeAreaView style={styles.topLevel}>
       <StruggleBusHeader></StruggleBusHeader>
+      <ActionButton title="FAQ" onPress={()=>{navigation.navigate('FAQScreen')}}></ActionButton>
       <FlatList
         data={friendData} 
         renderItem={(item) => renderContact(item)}
         keyExtractor={(item) => item.id}
       />
+      
     </SafeAreaView>   
   )
 }

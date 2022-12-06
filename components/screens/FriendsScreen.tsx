@@ -17,31 +17,37 @@ const friendData = [
     {
         id: '1',
         username: 'George',
+        // imageUrl: require('./assets/images/companions/cat.png'),
         imageUrl: './assets/images/companions/cat.png',
     },
     {
         id: '2',
         username: 'Hannah',
+        // imageUrl: require('./assets/images/companions/cat.png'),
         imageUrl: './assets/images/companions/cat.png',
     },
     {
         id: '3',
         username: 'Roy',
+        // imageUrl: require('./assets/images/companions/cat.png'),
         imageUrl: './assets/images/companions/cat.png',
     },
     {
         id: '4',
         username: 'Jenny',
+        // imageUrl: require('./assets/images/companions/cat.png'),
         imageUrl: './assets/images/companions/cat.png',
     },
     {
         id: '5',
         username: 'Alice',
+        // imageUrl: require('./assets/images/companions/cat.png'),
         imageUrl: './assets/images/companions/cat.png',
     },
     {
         id: '6',
         username: 'Aaron',
+        // imageUrl: require('./assets/images/companions/cat.png'),
         imageUrl: './assets/images/companions/cat.png',
     },
 ];
@@ -65,7 +71,7 @@ export default function FriendsScreen({ navigation }:Props) {
                 <ActionButton title="Add Friend" onPress={()=>{navigation.navigate('ContactsScreen')}}></ActionButton>
             </View>
                 <FlatList
-                    columnWrapperStyle={{justifyContent:'space-between'}}
+                    columnWrapperStyle={{justifyContent:'space-around'}}
                     horizontal={false}
                     numColumns={2}
                     data={friendData} // the array of data that the FlatList displays
@@ -87,7 +93,7 @@ const styles = StyleSheet.create({
         backgroundColor:theme.colors.background0
     },
     friendContainer: {
-        backgroundColor: 'red',
+        backgroundColor: 'grey',
         flexDirection: 'row',
         justifyContent: "space-between",
         alignItems: 'center',

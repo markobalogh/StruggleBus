@@ -8,7 +8,10 @@ import {
   export default function FriendProfile({ username, id, imageUrl }) {
     return (
       <View style={styles.item}>
-        <Image style={styles.image} source={{uri: imageUrl}}/>
+        <View style={styles.imageContainer}>
+          <Image style={styles.image} source={{uri:imageUrl}}/>
+        </View>
+        
         <View style={styles.info}>
           <Text style={styles.name}>{username}</Text>
         </View>  
@@ -34,11 +37,16 @@ import {
     info: {
       alignItems: 'center',
       paddingHorizontal: 30,
+      flexDirection: 'row',
     },
     image: {
+      backgroundColor: 'red',
+      resizeMode: 'contain'
+    },
+    imageContainer: {
+      borderRadius: 100,
       width: 120,
       height: 120,
       backgroundColor: 'red',
-      resizeMode: 'contain'
-    }
+    },
   });

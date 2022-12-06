@@ -13,6 +13,7 @@ import CheckInScreen from './components/screens/CheckInScreen';
 import TypeCheckInModal from './components/screens/TypeCheckInModal';
 import FriendsScreen from './components/screens/FriendsScreen';
 import ContactsScreen from './components/screens/ContactsScreen';
+import FAQScreen from './components/screens/FAQScreen';
 
 
 //Setup
@@ -28,6 +29,7 @@ type RootStackParamList = {
   CheckInScreen: undefined;
   ContactsScreen: undefined;
   FriendsScreen: undefined;
+  FAQScreen: undefined;
 };
 
 declare global {
@@ -63,6 +65,7 @@ export default function App() {
           <Stack.Screen name='CheckInScreen' component={CheckInScreen} options={{ headerShown: false }}></Stack.Screen>
           <Stack.Screen name='FriendsScreen' component={FriendsScreen} options={{ headerShown: false }}></Stack.Screen>
           <Stack.Screen name='ContactsScreen' component={ContactsScreen} options={{ headerShown: false }}></Stack.Screen>
+          <Stack.Screen name='FAQScreen' component={FAQScreen} options={{ headerShown: false }}></Stack.Screen>
           <Stack.Screen  options={{ presentation: "transparentModal", headerShown: false }} name="TypeCheckInModal" component={TypeCheckInModal} ></Stack.Screen>
           <Stack.Screen name='History' component={History} options={{ headerShown: false }}></Stack.Screen>
         </Stack.Navigator>

@@ -40,7 +40,7 @@ export default function History({ navigation }:Props) {
 
   const setStatusFilter = status => {
 
-    setDatalist([...datalist.filter(period => period.status === status)])
+    setDatalist([...moods.filter(period => period.status === status)])
     setStatus(status)
     // console.log(status)
   }
