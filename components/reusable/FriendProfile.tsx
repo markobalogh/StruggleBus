@@ -8,8 +8,10 @@ import {
   export default function FriendProfile({ username, id, imageUrl }) {
     return (
       <View style={styles.item}>
-        <Text style={styles.name}>{username}</Text>
         <Image style={styles.image} source={{uri: imageUrl}}/>
+        <View style={styles.info}>
+          <Text style={styles.name}>{username}</Text>
+        </View>  
       </View>
     );
   }
@@ -19,20 +21,19 @@ import {
       backgroundColor: 'blue',
       paddingHorizontal: 30,
       flex: 1,
+      flexDirection: 'column',
     },
     textSection: {
       flex: 1,
     },
     name: {
       fontSize: 16,
-      fontWeight: 'bold',
+      // fontWeight: 'bold',
       marginBottom: 10,
     },
     info: {
-      fontSize: 16,
-      color: 'black',
-      borderWidth: 1,
-      padding: 4,
+      alignItems: 'center',
+      paddingHorizontal: 30,
     },
     image: {
       width: 120,

@@ -3,17 +3,17 @@ import { useRef, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { theme } from "../../theme";
 import { fonts } from "../../typography";
-import StruggleBusHeader from "./StruggleBusHeader";
+import StruggleBusHeader from "../reusable/StruggleBusHeader";
 import { NavigationProp } from '@react-navigation/native'
 import { Props } from "../../App";
-import ActionButton from "./ActionButton";
-import BottomTextInput from "./BottomTextInput";
-import EmojiSelector from "./EmojiSelector";
-import ActionButtonHistory from "./ActionButtonHistory";
-import FriendProfile from "./FriendProfile";
+import ActionButton from "../reusable/ActionButton";
+import BottomTextInput from "../reusable/BottomTextInput";
+import EmojiSelector from "../reusable/EmojiSelector";
+import PeriodFilterButton from "../reusable/PeriodFilterButton";
+import FriendProfile from "../reusable/FriendProfile";
 
 
-const groceryListData = [
+const friendData = [
     {
         id: '1',
         username: 'George',
@@ -60,16 +60,18 @@ export default function FriendsScreen({ navigation }:Props) {
     return (
         <SafeAreaView style={styles.topLevel}>
             <StruggleBusHeader></StruggleBusHeader>
-            <View>
+            <View style={styles.friendContainer}>
+                <Text style={styles.name}>Friends</Text>
+                <ActionButton title="Add Friend" onPress={()=>{navigation.navigate('ContactsScreen')}}></ActionButton>
+            </View>
                 <FlatList
                     columnWrapperStyle={{justifyContent:'space-between'}}
                     horizontal={false}
                     numColumns={2}
-                    data={groceryListData} // the array of data that the FlatList displays
+                    data={friendData} // the array of data that the FlatList displays
                     renderItem={(item) => renderFriendProfile(item)}
                     keyExtractor={(item) => item.id}
                 />
-            </View>
         </SafeAreaView>
     )
 }
@@ -80,10 +82,20 @@ export default function FriendsScreen({ navigation }:Props) {
 const styles = StyleSheet.create({
     topLevel: {
         flex:1,
+        // paddingHorizontal: 30,
         flexDirection: 'column',
         backgroundColor:theme.colors.background0
     },
-    item1: {
+    friendContainer: {
         backgroundColor: 'red',
+        flexDirection: 'row',
+        justifyContent: "space-between",
+        alignItems: 'center',
+        paddingHorizontal: 30,
+    },
+    name: {
+        fontSize: 25,
+        fontWeight: 'bold',
+        marginBottom: 10,
     },
 })
