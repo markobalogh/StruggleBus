@@ -29,7 +29,7 @@ export type RootStackParamList = {
   History: undefined;
   CheckInScreen: undefined;
   ContactsScreen: undefined;
-  FriendsScreen: undefined;
+  FriendsScreen: {reversed:boolean};
   FAQScreen: undefined;
   Chat: FriendData;
 };
@@ -40,7 +40,7 @@ declare global {
   }
 }
 
-export type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
+export type Props<routeName extends keyof RootStackParamList> = NativeStackScreenProps<RootStackParamList, routeName>;
 
 export default function App() {
   const [fontsLoaded] = useFonts({

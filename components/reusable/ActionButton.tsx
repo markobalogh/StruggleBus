@@ -5,13 +5,14 @@ import { fonts } from "../../typography";
 interface ActionButtonProps {
   onPress: () => void,
   title: string,
-  style?:StyleProp<TextStyle>
+  style?: StyleProp<TextStyle>
+  textStyle?: StyleProp<TextStyle>
 }
 
-export default function ActionButton({onPress,title,style}:ActionButtonProps) {
+export default function ActionButton({onPress,title,style,textStyle}:ActionButtonProps) {
   return (
-    <TouchableOpacity onPress={onPress} style={[style,styles.topLevel]}>
-      <Text style={[fonts.header2, styles.title]}>{title}</Text>
+    <TouchableOpacity onPress={onPress} style={[styles.topLevel,style]}>
+      <Text style={[fonts.header2, styles.title, textStyle]}>{title}</Text>
     </TouchableOpacity>
   )
 }

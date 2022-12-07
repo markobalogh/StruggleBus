@@ -9,14 +9,19 @@ import {
 import { theme } from '../../theme';
 import { fonts } from '../../typography';
   
-export default function FriendProfile({ username, id, imageUrl, showUsername, tappable }) {
+export default function FriendProfile({ username, id, imageUrl, showUsername, tappable, stopLightColor, marginBottom }) {
     
   const navigation = useNavigation();
 
     return (
-      <Pressable style={styles.item} onPress={() => { if (tappable) navigation.navigate("Chat", {username,id,imageUrl}) }}>
-        <View style={styles.imageContainer}>
-          <Image style={styles.image} source={imageUrl}/>
+      <Pressable style={[styles.item, { marginBottom } ]} onPress={() => { if (tappable) navigation.navigate("Chat", {username,id,imageUrl,stopLightColor}) }}>
+        <View style={{width:120,height:120}}>
+          <View style={styles.imageContainer}>
+            <Image style={styles.image} source={imageUrl} />
+          </View>
+          <View style={styles.statusContainer}>
+            <View style={[styles.status, { backgroundColor: stopLightColor }]}></View>
+          </View>
         </View>
         {
           showUsername ? 
@@ -36,7 +41,7 @@ export default function FriendProfile({ username, id, imageUrl, showUsername, ta
       paddingHorizontal: 30,
       flex: 1,
       flexDirection: 'column',
-      alignItems:'center'
+      alignItems: 'center',
     },
     textSection: {
       flex: 1,
@@ -44,6 +49,7 @@ export default function FriendProfile({ username, id, imageUrl, showUsername, ta
     name: {
       fontSize: 16,
       // fontWeight: 'bold',
+      marginTop:10,
       marginBottom: 10,
       // backgroundColor:'green'
     },
@@ -70,4 +76,22 @@ export default function FriendProfile({ username, id, imageUrl, showUsername, ta
       backgroundColor: theme.colors.background2,
       overflow:'hidden',
     },
+    statusContainer: {
+      position: 'absolute',
+      top: 0,
+      bottom: 0,
+      right: 0,
+      left: 0,
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems:'center'
+    },
+    status: {
+      position: 'relative',
+      top: -41,
+      right:-41,
+      width: 20,
+      height: 20,
+      borderRadius:10,
+    }
   });

@@ -37,7 +37,7 @@ export default function ChatScreen() {
   return (
     <SafeAreaView style={styles.topLevel} edges={['top']}>
       <View style={styles.header}>
-        <FriendProfile id={1} imageUrl={route.params.imageUrl} tappable={false} username={route.params.username} showUsername={false}></FriendProfile>
+        <FriendProfile id={1} imageUrl={route.params.imageUrl} tappable={false} username={route.params.username} showUsername={false} stopLightColor={route.params.stopLightColor} marginBottom={0}></FriendProfile>
         <View style={styles.headerNameContainer}>
           <Text style={[ fonts.header2]}>{route.params.username}</Text>
           <Text style={[fonts.body, {fontSize:12, lineHeight:12}]}>online</Text>
