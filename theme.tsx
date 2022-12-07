@@ -7,7 +7,8 @@ export const theme = {
     redLight: '#FC4949',
     background0: '#FFFFFF',
     background1: '#F6F6F6',
-    background2: '#DCEDEB'
+    background2: '#DCEDEB',
+    inboundMessages: '#A1CEB8'
   },
   padding0: 12,
   padding1: 30,
