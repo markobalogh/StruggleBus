@@ -8,7 +8,7 @@ import { Props } from "../../App";
 import ActionButton from "../reusable/ActionButton";
 
 
-export default function Home({ navigation }:Props) {
+export default function Home({ navigation }:Props<"Home">) {
   return (
     <SafeAreaView style={styles.topLevel}>
       <StruggleBusHeader></StruggleBusHeader>
@@ -27,7 +27,7 @@ export default function Home({ navigation }:Props) {
           <ActionButton onPress={()=>{navigation.navigate("CheckInScreen")}} title="Check In"></ActionButton>
         </View>
         <View style={styles.rightIconContainer}>
-          <TouchableOpacity style={styles.icon}>
+          <TouchableOpacity style={styles.icon} onPress={()=>{navigation.navigate("FriendsScreen", {reversed:false})}}>
             <Image style={styles.icon} resizeMode="contain" source={require("./../../assets/images/friends_icon.png")}></Image>
           </TouchableOpacity>
           <TouchableOpacity onPress={()=>{navigation.navigate("History")}} style={styles.icon}>

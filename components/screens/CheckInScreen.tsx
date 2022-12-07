@@ -12,7 +12,7 @@ import EmojiSelector from "../reusable/EmojiSelector";
 import ActionButtonHistory from "../reusable/ActionButtonHistory";
 
 
-export default function CheckInScreen({ navigation }:Props) {
+export default function CheckInScreen({ navigation }:Props<"CheckInScreen">) {
   const [value, onChangeText] = useState('');
 
   const [feedPetVisible, setFeedPetVisible] = useState(false);
@@ -61,7 +61,7 @@ export default function CheckInScreen({ navigation }:Props) {
               feedPetVisible && (!entrySubmitted) ? <ActionButton title="Feed Pet" onPress={() => {setEntrySubmitted(true)}}></ActionButton> : null
             }
             {
-              entrySubmitted ? <ActionButton title="Reach Out" onPress={()=>{navigation.navigate("FriendsScreen")}}></ActionButton> : null
+              entrySubmitted ? <ActionButton title="Reach Out" onPress={()=>{navigation.navigate("FriendsScreen", {reversed:true})}}></ActionButton> : null
             }
           </View>
         </KeyboardAvoidingView>

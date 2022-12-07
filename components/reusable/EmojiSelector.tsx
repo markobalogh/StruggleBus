@@ -13,13 +13,13 @@ export default function EmojiSelector({ style, onSelect }:{style:StyleProp<ViewS
         emojis.map((emoji, i) => {
           if (i === selectedIndex) {
             return (
-              <Pressable onPress={() => { setSelectedIndex(i); onSelect()}}>
+              <Pressable key={i} onPress={() => { setSelectedIndex(i); onSelect()}}>
                 <Text style={styles.emoji} key={i}>{emoji}</Text>
               </Pressable>
             )
           } else {
             return (
-              <Pressable onPress={() => { setSelectedIndex(i); onSelect()}}>
+              <Pressable key={i} onPress={() => { setSelectedIndex(i); onSelect()}}>
                 <Text style={[styles.emoji, {opacity:0.5}]} key={i}>{emoji}</Text>
               </Pressable>
             )          }

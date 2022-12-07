@@ -11,9 +11,10 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import History from './components/screens/History';
 import CheckInScreen from './components/screens/CheckInScreen';
 import TypeCheckInModal from './components/screens/TypeCheckInModal';
-import FriendsScreen from './components/screens/FriendsScreen';
+import FriendsScreen, { FriendData } from './components/screens/FriendsScreen';
 import ContactsScreen from './components/screens/ContactsScreen';
 import FAQScreen from './components/screens/FAQScreen';
+import ChatScreen from './components/screens/ChatScreen';
 
 
 //Setup
@@ -23,13 +24,14 @@ const Stack = createNativeStackNavigator();
 SplashScreen.preventAutoHideAsync();
 
 //Set up type definitions for navigation
-type RootStackParamList = {
+export type RootStackParamList = {
   Home: undefined;
   History: undefined;
   CheckInScreen: undefined;
   ContactsScreen: undefined;
-  FriendsScreen: undefined;
+  FriendsScreen: {reversed:boolean};
   FAQScreen: undefined;
+  Chat: FriendData;
 };
 
 declare global {
@@ -38,7 +40,7 @@ declare global {
   }
 }
 
-export type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
+export type Props<routeName extends keyof RootStackParamList> = NativeStackScreenProps<RootStackParamList, routeName>;
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -68,6 +70,7 @@ export default function App() {
           <Stack.Screen name='FAQScreen' component={FAQScreen} options={{ headerShown: false }}></Stack.Screen>
           <Stack.Screen  options={{ presentation: "transparentModal", headerShown: false }} name="TypeCheckInModal" component={TypeCheckInModal} ></Stack.Screen>
           <Stack.Screen name='History' component={History} options={{ headerShown: false }}></Stack.Screen>
+          <Stack.Screen name='Chat' component={ChatScreen} options={{ headerShown: false }}></Stack.Screen>
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
