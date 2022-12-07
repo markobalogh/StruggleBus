@@ -15,6 +15,7 @@ import FriendsScreen, { FriendData } from './components/screens/FriendsScreen';
 import ContactsScreen from './components/screens/ContactsScreen';
 import FAQScreen from './components/screens/FAQScreen';
 import ChatScreen from './components/screens/ChatScreen';
+import Onboarding from './components/screens/onboarding/Onboarding';
 
 
 //Setup
@@ -32,6 +33,7 @@ export type RootStackParamList = {
   FriendsScreen: {reversed:boolean};
   FAQScreen: undefined;
   Chat: FriendData;
+  Onboarding: undefined;
 };
 
 declare global {
@@ -62,7 +64,7 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <NavigationContainer onReady={onLayoutRootView}>
-        <Stack.Navigator initialRouteName='Home'>
+        <Stack.Navigator initialRouteName='Onboarding'>
           <Stack.Screen name='Home' component={Home} options={{ headerShown: false }}></Stack.Screen>
           <Stack.Screen name='CheckInScreen' component={CheckInScreen} options={{ headerShown: false }}></Stack.Screen>
           <Stack.Screen name='FriendsScreen' component={FriendsScreen} options={{ headerShown: false }}></Stack.Screen>
@@ -71,6 +73,7 @@ export default function App() {
           <Stack.Screen  options={{ presentation: "transparentModal", headerShown: false }} name="TypeCheckInModal" component={TypeCheckInModal} ></Stack.Screen>
           <Stack.Screen name='History' component={History} options={{ headerShown: false }}></Stack.Screen>
           <Stack.Screen name='Chat' component={ChatScreen} options={{ headerShown: false }}></Stack.Screen>
+          <Stack.Screen name='Onboarding' component={Onboarding} options={{ headerShown: false }}></Stack.Screen>
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
