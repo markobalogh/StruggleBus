@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import {FlatList, View, Text, StyleSheet} from 'react-native';
-import Faq from "react-native-faq";
 import { Props } from "../../App";
 import StruggleBusHeader from "../reusable/StruggleBusHeader";
 
