@@ -2,11 +2,11 @@ import React, {useEffect, useState} from 'react';
 import {FlatList, View, Text, StyleSheet} from 'react-native';
 import Contacts from 'react-native-contacts';
 // import {Contact} from '.';
-import { Props } from "../../App";
-import ContactList from '../reusable/ContactList';
+import { Props } from "../../../App";
+import ContactList from '../../reusable/ContactList';
 import { SafeAreaView } from "react-native-safe-area-context";
-import StruggleBusHeader from "../reusable/StruggleBusHeader";
-import ActionButton from '../reusable/ActionButton';
+import StruggleBusHeader from "../../reusable/StruggleBusHeader";
+import ActionButton from '../../reusable/buttons/ActionButton';
 
 
 
@@ -33,7 +33,7 @@ const friendData = [
 
 
 
-export default function ContactsScreen({ navigation }:Props) {
+export default function ContactsScreen({ navigation }:Props<"ContactsScreen">) {
 //   const [contacts, setContacts] = useState([]);
 
 //   useEffect(() => {

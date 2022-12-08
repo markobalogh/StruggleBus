@@ -1,11 +1,11 @@
 import { StyleSheet, Text, View, FlatList } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Props } from "../../App";
-import { theme } from "../../theme";
-import { fonts } from "../../typography";
-import StruggleBusHeader from "../reusable/StruggleBusHeader";
-import ActionButtonHistory from "../reusable/ActionButtonHistory";
-import PeriodFilterButton from "../reusable/PeriodFilterButton";
+import { Props } from "../../../App";
+import { theme } from "../../../theme";
+import { fonts } from "../../../typography";
+import StruggleBusHeader from "../../reusable/StruggleBusHeader";
+import ActionButtonHistory from "../../reusable/buttons/ActionButtonHistory";
+import PeriodFilterButton from "../../reusable/buttons/PeriodFilterButton";
 import { useState } from "react";
 
 
@@ -33,7 +33,7 @@ const moods = [
 ]
 
 
-export default function History({ navigation }:Props) {
+export default function MoodScreen({ navigation }:Props<"MoodScreen">) {
 
   const [status, setStatus] = useState()
   const [datalist, setDatalist] = useState(moods)
@@ -57,10 +57,10 @@ export default function History({ navigation }:Props) {
   return (
     <SafeAreaView style={styles.topLevel}>
       <StruggleBusHeader></StruggleBusHeader>
-      <View style={styles.kudosMoodContainer}>
+      {/* <View style={styles.kudosMoodContainer}>
         <ActionButtonHistory onPress={()=>{}} title="Kudos"></ActionButtonHistory>
         <ActionButtonHistory onPress={()=>{}} title="Mood"></ActionButtonHistory> 
-      </View>
+      </View> */}
 
       <View style={styles.kudosMoodContainer}>
         {

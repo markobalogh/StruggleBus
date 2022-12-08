@@ -2,11 +2,11 @@ import { RouteProp, useNavigation, useRoute } from "@react-navigation/native";
 import { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { RootStackParamList } from "../../App";
-import { fonts } from "../../typography";
-import FriendProfile from "../reusable/FriendProfile";
+import { RootStackParamList } from "../../../App";
+import { fonts } from "../../../typography";
+import FriendProfile from "../../reusable/FriendProfile";
 import { IMessage, GiftedChat, Bubble } from 'react-native-gifted-chat'
-import { theme } from "../../theme";
+import { theme } from "../../../theme";
 
 const initialMessageSet: IMessage[] = [
   {

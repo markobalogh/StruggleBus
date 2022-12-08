@@ -5,7 +5,7 @@ import { fonts } from "../../typography";
 import StruggleBusHeader from "../reusable/StruggleBusHeader";
 import { NavigationProp } from '@react-navigation/native'
 import { Props } from "../../App";
-import ActionButton from "../reusable/ActionButton";
+import ActionButton from "../reusable/buttons/ActionButton";
 
 
 export default function Home({ navigation }:Props<"Home">) {

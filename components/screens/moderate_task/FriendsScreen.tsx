@@ -6,10 +6,10 @@ import { fonts } from "../../typography";
 import StruggleBusHeader from "../reusable/StruggleBusHeader";
 import { NavigationProp } from '@react-navigation/native'
 import { Props } from "../../App";
-import ActionButton from "../reusable/ActionButton";
+import ActionButton from "../reusable/buttons/ActionButton";
 import BottomTextInput from "../reusable/BottomTextInput";
 import EmojiSelector from "../reusable/EmojiSelector";
-import PeriodFilterButton from "../reusable/PeriodFilterButton";
+import PeriodFilterButton from "../reusable/buttons/PeriodFilterButton";
 import FriendProfile from "../reusable/FriendProfile";
 
 export interface FriendData {

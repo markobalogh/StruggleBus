@@ -1,8 +1,8 @@
 import { StyleProp, StyleSheet, Text, TextStyle, TouchableOpacity } from "react-native";
-import { theme } from "../../theme";
-import { fonts } from "../../typography";
+import { theme } from "../../../theme";
+import { fonts } from "../../../typography";
 
-interface PeriodFilterButtonProps {
+interface FriendKudosButtonProps {
   onPress: () => void,
   title: string,
   style?:StyleProp<TextStyle>
@@ -10,7 +10,7 @@ interface PeriodFilterButtonProps {
 // update  IS SELECETD VAR on preSS 
 }
 
-export default function PeriodFilterButton({onPress,title,style}:PeriodFilterButtonProps) {
+export default function FriendKudosButton({onPress,title,style}:FriendKudosButtonProps) {
   return (
     <TouchableOpacity onPress={onPress} style={[style,styles.topLevel]}>
         {/* style={[style,styles.topLevel, { backgroundcolor : isSelected ? selectedcolor : notselectedcolor}]} */}
@@ -21,11 +21,11 @@ export default function PeriodFilterButton({onPress,title,style}:PeriodFilterBut
 
 const styles = StyleSheet.create({
   topLevel: {
-    height: 20,
-    width:120,
-    maxHeight: 20,
-    maxWidth:120,
-    borderRadius: 10,
+    height: 28,
+    width:110,
+    maxHeight: 28,
+    maxWidth:110,
+    borderRadius: 15,
     backgroundColor: theme.colors.notselected,
     flexDirection: 'row',
     justifyContent: 'center',

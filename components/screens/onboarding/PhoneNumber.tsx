@@ -5,7 +5,7 @@ import { Image, KeyboardAvoidingView, Pressable, StyleSheet, Text, TextInput, Vi
 import { SafeAreaView } from "react-native-safe-area-context";
 import { theme } from "../../../theme";
 import { fonts } from "../../../typography";
-import ActionButton from "../../reusable/ActionButton";
+import ActionButton from "../../reusable/buttons/ActionButton";
 
 const inputIndices = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 

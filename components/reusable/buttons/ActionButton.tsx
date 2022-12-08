@@ -1,6 +1,6 @@
 import { StyleProp, StyleSheet, Text, TextStyle, TouchableOpacity } from "react-native";
-import { theme } from "../../theme";
-import { fonts } from "../../typography";
+import { theme } from "../../../theme";
+import { fonts } from "../../../typography";
 
 interface ActionButtonProps {
   onPress: () => void,

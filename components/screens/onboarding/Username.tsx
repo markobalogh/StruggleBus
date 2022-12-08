@@ -5,7 +5,7 @@ import { Image, ImageBackground, KeyboardAvoidingView, Pressable, StyleSheet, Te
 import { SafeAreaView } from "react-native-safe-area-context";
 import { theme } from "../../../theme";
 import { fonts } from "../../../typography";
-import ActionButton from "../../reusable/ActionButton";
+import ActionButton from "../../reusable/buttons/ActionButton";
 
 export default function Username() {
 

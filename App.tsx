@@ -8,14 +8,15 @@ import Home from './components/screens/Home';
 import * as SplashScreen from 'expo-splash-screen';
 import { useCallback, useState } from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import History from './components/screens/History';
-import CheckInScreen from './components/screens/CheckInScreen';
+import History from './components/screens/complex_task/History';
+import CheckInScreen from './components/screens/simple_task/CheckInScreen';
 import TypeCheckInModal from './components/screens/TypeCheckInModal';
 import FriendsScreen, { FriendData } from './components/screens/FriendsScreen';
-import ContactsScreen from './components/screens/ContactsScreen';
+import ContactsScreen from './components/screens/moderate_task/ContactsScreen';
 import FAQScreen from './components/screens/FAQScreen';
-import ChatScreen from './components/screens/ChatScreen';
+import ChatScreen from './components/screens/moderate_task/ChatScreen';
 import Onboarding from './components/screens/onboarding/Onboarding';
+import MoodScreen from './components/screens/complex_task/MoodScreen';
 
 
 //Setup
@@ -34,6 +35,7 @@ export type RootStackParamList = {
   FAQScreen: undefined;
   Chat: FriendData;
   Onboarding: undefined;
+  MoodScreen: undefined;
 };
 
 declare global {
@@ -72,6 +74,7 @@ export default function App() {
           <Stack.Screen name='FAQScreen' component={FAQScreen} options={{ headerShown: false }}></Stack.Screen>
           <Stack.Screen  options={{ presentation: "transparentModal", headerShown: false }} name="TypeCheckInModal" component={TypeCheckInModal} ></Stack.Screen>
           <Stack.Screen name='History' component={History} options={{ headerShown: false }}></Stack.Screen>
+          <Stack.Screen name='MoodScreen' component={MoodScreen} options={{ headerShown: false }}></Stack.Screen>
           <Stack.Screen name='Chat' component={ChatScreen} options={{ headerShown: false }}></Stack.Screen>
           <Stack.Screen name='Onboarding' component={Onboarding} options={{ headerShown: false }}></Stack.Screen>
         </Stack.Navigator>
