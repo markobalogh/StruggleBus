@@ -63,7 +63,7 @@ export default function PhoneNumber() {
           inputIndices.map((val, i) => {
             return (
               <Pressable onPress={()=>setActiveInput(val)} key={val} style={[styles.numberInputContainer, activeInput === val ? { shadowRadius: 8 } : { shadowRadius: 2 }]}>
-                <TextInput onFocus={()=>setActiveInput(val)} ref={inputRefs[i]} style={styles.numberInput} keyboardType="phone-pad" onChangeText={(text)=>onInputChange(text)}></TextInput>
+                <TextInput caretHidden={true} onFocus={()=>setActiveInput(val)} ref={inputRefs[i]} style={styles.numberInput} keyboardType="phone-pad" onChangeText={(text)=>onInputChange(text)}></TextInput>
               </Pressable>
             )
           })
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     backgroundColor:theme.colors.background0,
     borderColor:theme.colors.background0,
-    shadowOpacity:1,
+    shadowOpacity:0.7,
     shadowRadius: 2,
     shadowOffset: { height:0,width:0},
     shadowColor:theme.colors.action
