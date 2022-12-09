@@ -28,6 +28,7 @@ export default function FriendProfileHistory({ username, id, imageUrl, showUsern
             <View style={styles.info}>
               {/* <Text style={[fonts.body, styles.name]}>{username}</Text> */}
               <FriendKudosButton onPress={()=>{}} title={username}></FriendKudosButton>
+              {/* //pass in the boolean with the state */}
             </View> 
           :
             null

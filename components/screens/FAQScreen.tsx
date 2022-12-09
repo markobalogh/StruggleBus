@@ -47,16 +47,16 @@ const config = {
     // tabFocus: true
 };
 
-export default function FAQScreen ({ navigation }:Props) {
+export default function FAQScreen ({ navigation }:Props<"FAQScreen">) {
 
     return (
         <View>
             <StruggleBusHeader></StruggleBusHeader>
-            {/* <Faq
+            <Faq
                 data={data}
                 styles={styles}
                 config={config}
-            /> */}
+            />
         </View>
     );
 }

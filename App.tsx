@@ -17,6 +17,7 @@ import FAQScreen from './components/screens/FAQScreen';
 import ChatScreen from './components/screens/moderate_task/ChatScreen';
 import Onboarding from './components/screens/onboarding/Onboarding';
 import MoodScreen from './components/screens/complex_task/MoodScreen';
+import KudoScreen from './components/screens/complex_task/KudoScreen';
 
 
 //Setup
@@ -36,6 +37,7 @@ export type RootStackParamList = {
   Chat: FriendData;
   Onboarding: undefined;
   MoodScreen: undefined;
+  KudoScreen: undefined;
 };
 
 declare global {
@@ -75,6 +77,7 @@ export default function App() {
           <Stack.Screen  options={{ presentation: "transparentModal", headerShown: false }} name="TypeCheckInModal" component={TypeCheckInModal} ></Stack.Screen>
           <Stack.Screen name='History' component={History} options={{ headerShown: false }}></Stack.Screen>
           <Stack.Screen name='MoodScreen' component={MoodScreen} options={{ headerShown: false }}></Stack.Screen>
+          <Stack.Screen name='KudoScreen' component={KudoScreen} options={{ headerShown: false }}></Stack.Screen>
           <Stack.Screen name='Chat' component={ChatScreen} options={{ headerShown: false }}></Stack.Screen>
           <Stack.Screen name='Onboarding' component={Onboarding} options={{ headerShown: false }}></Stack.Screen>
         </Stack.Navigator>

@@ -96,7 +96,7 @@ const friendData = [
 export default function History({ navigation, route }:Props<"History">) {
 
   const [status, setStatus] = useState("This week")
-  const [reachedOut, setReachedOut] = useState([...friendData.filter(period => period.status === status && period.reachedOut === "them")])
+  const [reachedOut, setReachedOut] = useState([...friendData.filter(period => period.status === status && period.reachedOut === "them")]) //here we filter the list for initial rendering
   const [datalist, setDatalist] = useState([...friendData.filter(period => period.status === status && period.reachedOut === "you")])
 
   
@@ -125,7 +125,7 @@ export default function History({ navigation, route }:Props<"History">) {
     <SafeAreaView style={styles.topLevel} edges={["left", "right", "top"]}>
       <StruggleBusHeader></StruggleBusHeader>
       <View style={styles.kudosMoodContainer}>
-        <ActionButtonHistory onPress={()=>{}} title="Kudos"></ActionButtonHistory>
+        <ActionButtonHistory onPress={()=>{navigation.navigate('KudoScreen')}} title="Kudos"></ActionButtonHistory>
         <ActionButtonHistory onPress={()=>{navigation.navigate('MoodScreen')}} title="Mood"></ActionButtonHistory> 
       </View>
 
