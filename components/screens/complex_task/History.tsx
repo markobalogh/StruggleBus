@@ -8,6 +8,7 @@ import ActionButtonHistory from "../../reusable/buttons/ActionButtonHistory";
 import PeriodFilterButton from "../../reusable/buttons/PeriodFilterButton";
 import { useState } from "react";
 import FriendProfileHistory from "../../reusable/FriendProfileHistory";
+import { idText } from "typescript";
 
 
 
@@ -117,7 +118,8 @@ export default function History({ navigation, route }:Props<"History">) {
             imageUrl={item.imageUrl}
             showUsername={true}
             tappable={true}
-            marginBottom={50} />
+            marginBottom={50}
+             />
         );
 }
 

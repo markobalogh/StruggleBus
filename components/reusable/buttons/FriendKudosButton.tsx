@@ -1,19 +1,29 @@
 import { StyleProp, StyleSheet, Text, TextStyle, TouchableOpacity } from "react-native";
+import React, {useEffect, useState} from 'react';
 import { theme } from "../../../theme";
 import { fonts } from "../../../typography";
 
 interface FriendKudosButtonProps {
   onPress: () => void,
   title: string,
-  style?:StyleProp<TextStyle>
-//   isSelected bool -> state
+  style?:StyleProp<TextStyle>,
+  // isSelected: false
 // update  IS SELECETD VAR on preSS 
 }
 
 export default function FriendKudosButton({onPress,title,style}:FriendKudosButtonProps) {
+
+  // const [isSelected, setIsSelected] = useState(false);
+
+  // onPress = () => {
+  //   // 👇️ toggle
+  //   setIsSelected(isSelected => !isSelected);
+  // };
+
+
   return (
     <TouchableOpacity onPress={onPress} style={[style,styles.topLevel]}>
-        {/* style={[style,styles.topLevel, { backgroundcolor : isSelected ? selectedcolor : notselectedcolor}]} */}
+      {/* ,{backgroundColor: isSelected ? theme.colors.action : theme.colors.notselected} */}
       <Text style={[fonts.header4, styles.title]}>{title}</Text>
     </TouchableOpacity>
   )
@@ -30,7 +40,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    // padding:theme.padding0,
   },
   title: {
     color:'white',

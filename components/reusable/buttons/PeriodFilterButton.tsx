@@ -1,4 +1,5 @@
 import { StyleProp, StyleSheet, Text, TextStyle, TouchableOpacity } from "react-native";
+import React, {useEffect, useState} from 'react';
 import { theme } from "../../../theme";
 import { fonts } from "../../../typography";
 
@@ -11,9 +12,17 @@ interface PeriodFilterButtonProps {
 }
 
 export default function PeriodFilterButton({onPress,title,style}:PeriodFilterButtonProps) {
+
+  // const [isSelected, setIsSelected] = useState(false);
+
+  // onPress = () => {
+  //   // 👇️ toggle
+  //   setIsSelected(isSelected => !isSelected);
+  // };
+
   return (
     <TouchableOpacity onPress={onPress} style={[style,styles.topLevel]}>
-        {/* style={[style,styles.topLevel, { backgroundcolor : isSelected ? selectedcolor : notselectedcolor}]} */}
+        {/* {backgroundColor: isSelected ? theme.colors.action : theme.colors.notselected} */}
       <Text style={[fonts.header4, styles.title]}>{title}</Text>
     </TouchableOpacity>
   )

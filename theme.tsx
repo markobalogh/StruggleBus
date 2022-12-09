@@ -12,5 +12,6 @@ export const theme = {
   },
   padding0: 12,
   padding1: 30,
+  padding2: 42,
   iconSize: 40,
 }
