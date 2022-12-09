@@ -13,10 +13,15 @@ import ActionButton from '../../reusable/buttons/ActionButton';
 import { fonts } from "../../../typography";
 import Dialog from "react-native-dialog";
 import KudosPost from '../../reusable/KudosPost';
+import { AutoGrowTextInput } from 'react-native-auto-grow-textinput';
+import FriendKudosButton from '../../reusable/buttons/FriendKudosButton';
 
 
-export default function KudoScreen({ navigation, route }:Props<"KudoScreen">) {
+export default function KudoScreen({ navigation }:Props<"KudoScreen">) {
 
+  const route:RouteProp<RootStackParamList,"KudoScreen"> = useRoute();
+
+  const InitialText = "You're a gee,man!";
     const [todos, setTodos] = useState([]);
     const [text, setText] = useState("");
 
@@ -41,9 +46,10 @@ export default function KudoScreen({ navigation, route }:Props<"KudoScreen">) {
 
     const renderTodo = ({ item }) => {
       return <KudosPost 
-              username={'Abena'} id='1' imageUrl={require("./../../../assets/images/notebookCover.png")} kudostext={item.text}/>;
+              username={'Alice'} imageUrl={require("./../../../assets/images/companions/SB_panda.png")} kudostext={item.text}/>;
     };
 
+    
 
     // let contentDisplayed;
     // if (true) {
@@ -63,6 +69,10 @@ export default function KudoScreen({ navigation, route }:Props<"KudoScreen">) {
             <Image style={styles.icon} resizeMode="contain" source={require("./../../../assets/images/friends_icon.png")}></Image>
         </View>
         
+        <View>
+        <KudosPost 
+              username={'Roy'} imageUrl={require("./../../../assets/images/companions/SB_bunny.png")} kudostext={InitialText}/>
+        </View>
 
         <FlatList
           data={todos} // STEP 3: set our data for the FlatList as the todos state variable we created earlier
@@ -70,25 +80,28 @@ export default function KudoScreen({ navigation, route }:Props<"KudoScreen">) {
           keyExtractor={(item, index) => item + index}
         />
 
-        <KeyboardAvoidingView contentContainerStyle={styles.notebook}>
+        <View style={styles.list}>
           <Dialog.Container 
                 visible={visible} 
                 onBackdropPress={noDialog}
+                contentStyle={styles.list}
                 >
-                <Dialog.Title>'To' + username</Dialog.Title>
+                <Dialog.Title>To Roy</Dialog.Title>
                 <Dialog.Description>
-                Send a quick 'thank you' message to + username
+                Send a quick 'thank you' message to Roy
                 </Dialog.Description>
-                <ImageBackground style={styles.notebook} resizeMode="contain" source={require("./../../../assets/images/notebookCover.png")}>
-                    <Dialog.Input onChangeText={(newText) => setText(newText)}
+                <AutoGrowTextInput onChangeText={(newText) => setText(newText)}
                           value={text} style={styles.nameInput} multiline={true} returnKeyType="done">
-                    </Dialog.Input>
-              </ImageBackground>
+                </AutoGrowTextInput>
+                <Dialog.Button label="Send Kudos" onPress={noDialog} />
             </Dialog.Container>
-        </KeyboardAvoidingView>
+        </View>
+        </View>
+        <View style={styles.kudosButton}>
+          <FriendKudosButton title="write kudos" onPress={navigation.goBack} />
+        </View>
 
-      </View>
-     
+      
 
     </SafeAreaView>   
   )
@@ -97,8 +110,8 @@ export default function KudoScreen({ navigation, route }:Props<"KudoScreen">) {
 
 const styles = StyleSheet.create({
   list: {
-    flex: 1,
-    backgroundColor: 'pink'
+    // flex: 1,
+    // backgroundColor: 'pink'
   },
   topLevel: {
     flex:1,
@@ -119,7 +132,9 @@ const styles = StyleSheet.create({
   nameInput: {
     ...fonts.handwriting,
     fontSize:18,
-    textAlign:'center'
+    color: 'white',
+    textAlign:'center',
+    width: '90%',
   },
   notebook: {
     alignSelf: 'stretch',
@@ -136,6 +151,13 @@ const styles = StyleSheet.create({
   textinputrow: {
     flexDirection: 'row',
     marginBottom: 10,
+  },
+  kudosButton: {
+    alignItems: 'center',
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: '5%',
   },
 })
 

@@ -21,20 +21,20 @@ const moods = [
   {
     mood: 'calm',
     status: 'This week',
-    radius: Dimensions.get('window').height / 5,
+    radius: Dimensions.get('window').height / 3,
     color: theme.colors.notselected
   },
   {
     mood: 'relaxed',
     status: 'This month',
-    radius: Dimensions.get('window').height / 6,
+    radius: Dimensions.get('window').height / 4,
     color: theme.colors.action
   },
   {
     mood: 'serene',
     status: 'This year',
-    radius: Dimensions.get('window').height / 4,
-    color: theme.colors.inboundMessages,
+    radius: Dimensions.get('window').height / 3,
+    color: theme.colors.mood1,
   },
 ]
 
@@ -52,21 +52,25 @@ export default function MoodScreen({ navigation }:Props<"MoodScreen">) {
 
   const renderItem = ({item, index}) => {
     return (
-      <View style={{backgroundColor: item.color, 
-                    borderRadius: item.radius / 2, 
-                    borderWidth: 2,
-                    borderColor: theme.colors.notselected,
-                    shadowOffset: {width:7, height: 2},
-                    shadowOpacity: 0.1,
-                    shadowRadius:10,
-                    shadowColor: 'black',
-                    width: item.radius, 
-                    height: item.radius, 
-                    alignItems: 'center', 
-                    flexDirection: 'row', 
-                    justifyContent:'center',
-                   }}>
-        <Text>{item.mood}</Text>
+      <View style={{justifyContent: 'space-around'}}>
+        <View style={{backgroundColor: item.color, 
+                      borderRadius: item.radius / 2, 
+                      borderWidth: 2,
+                      borderColor: theme.colors.notselected,
+                      shadowOffset: {width:5, height: 5},
+                      shadowOpacity: 0.3,
+                      shadowRadius:10,
+                      shadowColor: 'black',
+                      width: item.radius, 
+                      height: item.radius, 
+                      alignItems: 'center', 
+                      alignSelf: 'center',
+                      marginTop: '25%',
+                      flexDirection: 'row', 
+                      justifyContent:'center',
+                    }}>
+          <Text style={[fonts.handwriting, styles.moodText]}>{item.mood}</Text>
+        </View>
       </View>
     )
   }
@@ -84,6 +88,9 @@ export default function MoodScreen({ navigation }:Props<"MoodScreen">) {
           ))
         }
       </View>
+
+      <Text style={styles.reachedOutText}>Abena's mood:</Text>
+
 
       <FlatList
         data={datalist}
@@ -108,4 +115,14 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     padding: theme.padding0,
   },
+  moodText: {
+    fontSize: 56,
+    fontWeight: "bold",
+  },
+  reachedOutText: {
+    fontSize:36,
+    fontWeight:"bold",
+    padding: theme.padding0,
+    textAlign: 'center',
+},
 });

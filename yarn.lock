@@ -6647,6 +6647,11 @@ react-native-androw@^0.0.34:
   resolved "https://registry.yarnpkg.com/react-native-androw/-/react-native-androw-0.0.34.tgz#5c4214b155946004a57916619a518974ebd96b36"
   integrity sha512-YuW0GxYNzABvPPe6k+JdLUF5CAzKSW5R6IxxA/+fg5gc+4avE1tZgLmnRfNtXJCbW9r90YLYp33S9Uu2pe//fg==
 
+react-native-auto-grow-textinput@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/react-native-auto-grow-textinput/-/react-native-auto-grow-textinput-1.2.1.tgz#46e22d4792d431fddccf99337f5c09edb5922170"
+  integrity sha512-PHF5TBUQ1e1+DA1i9LvlaEPtzAWzGwxj7Tg01F84WkDQxNxUTscigMOTNW+CrpgbLHznin1bdo9iPKFt8Nt8kw==
+
 react-native-codegen@^0.70.6:
   version "0.70.6"
   resolved "https://registry.npmjs.org/react-native-codegen/-/react-native-codegen-0.70.6.tgz"

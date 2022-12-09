@@ -1,4 +1,5 @@
 import { useNavigation } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import {
     StyleSheet,
     Text,
@@ -10,6 +11,7 @@ import { theme } from '../../theme';
 import { fonts } from '../../typography';
 import FriendKudosButton from './buttons/FriendKudosButton';
   
+
 export default function FriendProfileHistory({ username, id, imageUrl, showUsername, tappable, marginBottom }) {
     
   const navigation = useNavigation();
@@ -18,16 +20,14 @@ export default function FriendProfileHistory({ username, id, imageUrl, showUsern
         //if (tappable) navigation.navigate("Chat", {username,id,imageUrl,stopLightColor}) 
     //   <Pressable style={[styles.item, { marginBottom } ]} onPress={() => {}}>
     <View style={[styles.item, { marginBottom } ]}>
-        <View style={{width:120,height:120}}>
           <View style={styles.imageContainer}>
             <Image style={styles.image} source={imageUrl} />
           </View>
-        </View>
         {
           showUsername ? 
             <View style={styles.info}>
               {/* <Text style={[fonts.body, styles.name]}>{username}</Text> */}
-              <FriendKudosButton onPress={()=>{navigation.navigate("KudoScreen")}} title={username}></FriendKudosButton>
+              <FriendKudosButton onPress={()=>{navigation.navigate("KudoScreen", {username,imageUrl})}} title={username}/>
               {/* //pass in the boolean with the state */}
             </View> 
           :

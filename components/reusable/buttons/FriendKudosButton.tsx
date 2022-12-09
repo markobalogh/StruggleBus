@@ -35,14 +35,20 @@ const styles = StyleSheet.create({
     width:110,
     maxHeight: 28,
     maxWidth:110,
-    borderRadius: 15,
-    backgroundColor: theme.colors.notselected,
+    borderRadius: 10,
+    borderColor: theme.colors.action,
+    borderWidth: 2,
+    // backgroundColor: theme.colors.notselected,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+    bordershadowOffset: {width:5, height: 5},
+    bordershadowOpacity: 1,
+    bordershadowRadius:10,
+    bordershadowColor: 'black',
   },
   title: {
-    color:'white',
+    color:'black',
     textAlign:'center'
   }
 })

@@ -118,7 +118,7 @@ export default function History({ navigation, route }:Props<"History">) {
             imageUrl={item.imageUrl}
             showUsername={true}
             tappable={true}
-            marginBottom={50}
+            marginBottom={20}
              />
         );
 }
