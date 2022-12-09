@@ -35,20 +35,28 @@ export default function KudoScreen({ navigation, route }:Props<"KudoScreen">) {
     };
     const noDialog = () => {
         setVisible(false);
+        addTodo();
     };
 
 
     const renderTodo = ({ item }) => {
-      // STEP 2: render a ToDo component with the text prop set to item -- check out ToDo.js if you'd like to see how this component is coded up
       return <KudosPost 
               username={'Abena'} id='1' imageUrl={require("./../../../assets/images/notebookCover.png")} kudostext={item.text}/>;
     };
 
 
-    let contentDisplayed;
-  
-    if (true) {
-      contentDisplayed = 
+    // let contentDisplayed;
+    // if (true) {
+    //   contentDisplayed = 
+    // } else{
+    //   contentDisplayed = <View style={styles.list}></View>
+    // }
+
+
+  return (
+    <SafeAreaView style={styles.topLevel}>
+      <StruggleBusHeader></StruggleBusHeader>
+      
       <View>
 
         <View style={styles.iconContainer}>
@@ -79,20 +87,8 @@ export default function KudoScreen({ navigation, route }:Props<"KudoScreen">) {
             </Dialog.Container>
         </KeyboardAvoidingView>
 
-    </View>
+      </View>
      
-    } else{
-      contentDisplayed = <View style={styles.list}></View>
-    }
-
-
-  return (
-    <SafeAreaView style={styles.topLevel}>
-      <StruggleBusHeader></StruggleBusHeader>
-      
-      {contentDisplayed}
-
-      {/* <Text style={[ fonts.header2]}>random text</Text> */}
 
     </SafeAreaView>   
   )
