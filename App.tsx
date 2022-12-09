@@ -11,7 +11,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import History from './components/screens/complex_task/History';
 import CheckInScreen from './components/screens/simple_task/CheckInScreen';
 import TypeCheckInModal from './components/screens/TypeCheckInModal';
-import FriendsScreen, { FriendData } from './components/screens/FriendsScreen';
+import FriendsScreen, { FriendData } from './components/screens/moderate_task/FriendsScreen';
 import ContactsScreen from './components/screens/moderate_task/ContactsScreen';
 import FAQScreen from './components/screens/FAQScreen';
 import ChatScreen from './components/screens/moderate_task/ChatScreen';

@@ -27,7 +27,7 @@ export default function CheckInScreen({ navigation }:Props<"CheckInScreen">) {
         <KeyboardAvoidingView style={styles.kbav} behavior="position" contentContainerStyle={styles.kbav} keyboardVerticalOffset={40}>
           <View style={styles.centerContainer}>
             <View style={styles.companionContainer}>
-              <Image style={styles.fullSize} resizeMode="contain" source={require("./../../assets/images/companions/cat_circle.png")}></Image>
+              <Image style={styles.fullSize} resizeMode="contain" source={require("./../../../assets/images/companions/cat_circle.png")}></Image>
             </View>
             {
               entrySubmitted ? <Text style={fonts.header}>Thanks for checking in!</Text>
@@ -39,7 +39,7 @@ export default function CheckInScreen({ navigation }:Props<"CheckInScreen">) {
                 :
               <View style={[styles.companionContainer, { aspectRatio: 770 / 462 }]}>
                 <Pressable style={styles.fullSize} onPress={()=>{textInputRef.current.focus()}}>
-                  <ImageBackground style={[styles.fullSize, styles.notebook]} resizeMode="stretch" source={require("./../../assets/images/notebook.png")}>
+                  <ImageBackground style={[styles.fullSize, styles.notebook]} resizeMode="stretch" source={require("./../../../assets/images/notebook.png")}>
                     <TextInput style={[styles.notebookText, fonts.handwriting]}
                       onChangeText={text => onChangeText(text)}
                       value={value}

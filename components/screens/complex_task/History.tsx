@@ -23,74 +23,88 @@ const friendData = [
       id: '1',
       username: 'George',
       // imageUrl: require('./assets/images/companions/cat.png'),
-      imageUrl: require('./../../assets/images/companions/SB_cat.png'),
+      imageUrl: require('./../../../assets/images/companions/SB_cat.png'),
       stopLightColor:'red',
-      status: 'This week'
+      status: 'This week',
+      reachedOut: 'you'
   },
   {
       id: '2',
       username: 'Hannah',
       // imageUrl: require('./assets/images/companions/cat.png'),
-      imageUrl: require('./../../assets/images/companions/SB_panda.png'),
+      imageUrl: require('./../../../assets/images/companions/SB_panda.png'),
       stopLightColor:'red',
-      status: 'This month'
+      status: 'This month',
+      reachedOut: 'you'
   },
   {
       id: '3',
       username: 'Roy',
       // imageUrl: require('./assets/images/companions/cat.png'),
-      imageUrl: require('./../../assets/images/companions/SB_bird.png'),
+      imageUrl: require('./../../../assets/images/companions/SB_bird.png'),
       stopLightColor:'yellow',
-      status: 'This week'
+      status: 'This week',
+      reachedOut: 'you'
+
   },
   {
       id: '4',
       username: 'Jenny',
       // imageUrl: require('./assets/images/companions/cat.png'),
-      imageUrl: require('./../../assets/images/companions/SB_bunny.png'),
+      imageUrl: require('./../../../assets/images/companions/SB_bunny.png'),
       stopLightColor:'yellow',
-      status: 'This month'
+      status: 'This month',
+      reachedOut: 'them'
   },
   {
       id: '5',
       username: 'Alice',
       // imageUrl: require('./assets/images/companions/cat.png'),
-      imageUrl: require('./../../assets/images/companions/SB_panda.png'),
+      imageUrl: require('./../../../assets/images/companions/SB_panda.png'),
       stopLightColor:'yellow',
-      status: 'This month'
+      status: 'This month',
+      reachedOut: 'them'
   },
   {
       id: '6',
       username: 'Aaron',
       // imageUrl: require('./assets/images/companions/cat.png'),
-      imageUrl: require('./../../assets/images/companions/SB_dog_white.png'),
+      imageUrl: require('./../../../assets/images/companions/SB_dog_white.png'),
       stopLightColor:'green',
-      status: 'This year'
+      status: 'This year',
+      reachedOut: 'them'
+      
   },
   {
       id: '7',
       username: 'Maurice',
-      imageUrl: require('./../../assets/images/companions/SB_cat.png'),
+      imageUrl: require('./../../../assets/images/companions/SB_cat.png'),
       stopLightColor:'green',
-      status: 'This week'
+      status: 'This week',
+      reachedOut: 'them'
   },
   {
       id: '8',
       username: 'Jane',
-      imageUrl: require('./../../assets/images/companions/SB_panda.png'),
+      imageUrl: require('./../../../assets/images/companions/SB_panda.png'),
       stopLightColor:'green',
-      status: 'This year'
+      status: 'This year',
+      reachedOut: 'them'
   }
 ];
 
 export default function History({ navigation, route }:Props<"History">) {
 
-  const [status, setStatus] = useState()
-  const [datalist, setDatalist] = useState(friendData)
+  const [status, setStatus] = useState("This week")
+  const [reachedOut, setReachedOut] = useState([...friendData.filter(period => period.status === status && period.reachedOut === "them")])
+  const [datalist, setDatalist] = useState([...friendData.filter(period => period.status === status && period.reachedOut === "you")])
+
+  
 
   const setStatusFilter = status => {
 
-    setDatalist([...friendData.filter(period => period.status === status)])
+    setDatalist([...friendData.filter(period => period.status === status && period.reachedOut === "them")])
+    setReachedOut([...friendData.filter(period => period.status === status && period.reachedOut === "you")])
     setStatus(status)
     // console.log(status)
   }
@@ -135,6 +149,18 @@ export default function History({ navigation, route }:Props<"History">) {
         keyExtractor={(item) => item.id}
         renderItem={(item) => renderFriendProfileHistory(item)}
       />
+
+
+      <Text style={styles.reachedOutText}>Who you reached out to:</Text>
+      <FlatList
+        columnWrapperStyle={{justifyContent:'space-around'}}
+        horizontal={false}
+        numColumns={2}
+        data={reachedOut}
+        keyExtractor={(item) => item.id}
+        renderItem={(item) => renderFriendProfileHistory(item)}
+      />
+
 
     </SafeAreaView>
   )

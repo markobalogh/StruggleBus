@@ -1,16 +1,16 @@
 import { Image, StyleSheet, Text, View, FlatList, TouchableOpacity, TextInput, ImageBackground, KeyboardAvoidingView, Pressable, ImageSourcePropType } from "react-native";
 import { useRef, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { theme } from "../../theme";
-import { fonts } from "../../typography";
-import StruggleBusHeader from "../reusable/StruggleBusHeader";
+import { theme } from "../../../theme";
+import { fonts } from "../../../typography";
+import StruggleBusHeader from "../../reusable/StruggleBusHeader";
 import { NavigationProp } from '@react-navigation/native'
-import { Props } from "../../App";
-import ActionButton from "../reusable/buttons/ActionButton";
-import BottomTextInput from "../reusable/BottomTextInput";
-import EmojiSelector from "../reusable/EmojiSelector";
-import PeriodFilterButton from "../reusable/buttons/PeriodFilterButton";
-import FriendProfile from "../reusable/FriendProfile";
+import { Props } from "../../../App";
+import ActionButton from "../../reusable/buttons/ActionButton";
+import BottomTextInput from "../../reusable/BottomTextInput";
+import EmojiSelector from "../../reusable/EmojiSelector";
+import PeriodFilterButton from "../../reusable/buttons/PeriodFilterButton";
+import FriendProfile from "../../reusable/FriendProfile";
 
 export interface FriendData {
     id: string,
@@ -25,54 +25,54 @@ const friendData:FriendData[] = [
         id: '1',
         username: 'George',
         // imageUrl: require('./assets/images/companions/cat.png'),
-        imageUrl: require('./../../assets/images/companions/SB_cat.png'),
+        imageUrl: require('./../../../assets/images/companions/SB_cat.png'),
         stopLightColor:'red',
     },
     {
         id: '2',
         username: 'Hannah',
         // imageUrl: require('./assets/images/companions/cat.png'),
-        imageUrl: require('./../../assets/images/companions/SB_panda.png'),
+        imageUrl: require('./../../../assets/images/companions/SB_panda.png'),
         stopLightColor:'red'
     },
     {
         id: '3',
         username: 'Roy',
         // imageUrl: require('./assets/images/companions/cat.png'),
-        imageUrl: require('./../../assets/images/companions/SB_bird.png'),
+        imageUrl: require('./../../../assets/images/companions/SB_bird.png'),
         stopLightColor:'yellow'
     },
     {
         id: '4',
         username: 'Jenny',
         // imageUrl: require('./assets/images/companions/cat.png'),
-        imageUrl: require('./../../assets/images/companions/SB_bunny.png'),
+        imageUrl: require('./../../../assets/images/companions/SB_bunny.png'),
         stopLightColor:'yellow'
     },
     {
         id: '5',
         username: 'Alice',
         // imageUrl: require('./assets/images/companions/cat.png'),
-        imageUrl: require('./../../assets/images/companions/SB_panda.png'),
+        imageUrl: require('./../../../assets/images/companions/SB_panda.png'),
         stopLightColor:'yellow',
     },
     {
         id: '6',
         username: 'Aaron',
         // imageUrl: require('./assets/images/companions/cat.png'),
-        imageUrl: require('./../../assets/images/companions/SB_dog_white.png'),
+        imageUrl: require('./../../../assets/images/companions/SB_dog_white.png'),
         stopLightColor:'green'
     },
     {
         id: '7',
         username: 'Maurice',
-        imageUrl: require('./../../assets/images/companions/SB_cat.png'),
+        imageUrl: require('./../../../assets/images/companions/SB_cat.png'),
         stopLightColor:'green'
     },
     {
         id: '8',
         username: 'Jane',
-        imageUrl: require('./../../assets/images/companions/SB_panda.png'),
+        imageUrl: require('./../../../assets/images/companions/SB_panda.png'),
         stopLightColor:'green'
     }
 ];
