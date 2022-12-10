@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
   nameInput: {
     ...fonts.handwriting,
     fontSize:18,
-    color: ,
+    color: 'white',
     textAlign:'center',
     width: '90%',
   },
