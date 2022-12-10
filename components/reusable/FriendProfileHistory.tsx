@@ -26,8 +26,7 @@ export default function FriendProfileHistory({ username, id, imageUrl, showUsern
         {
           showUsername ? 
             <View style={styles.info}>
-              {/* <Text style={[fonts.body, styles.name]}>{username}</Text> */}
-              <FriendKudosButton onPress={()=>{navigation.navigate("KudoScreen", {username,imageUrl})}} title={username}/>
+              <FriendKudosButton onPress={()=>{navigation.navigate("KudoScreen", {username,imageUrl, showDialog:true})}} title={username}/>
               {/* //pass in the boolean with the state */}
             </View> 
           :
@@ -39,7 +38,6 @@ export default function FriendProfileHistory({ username, id, imageUrl, showUsern
   
   const styles = StyleSheet.create({
     item: {
-      // backgroundColor: 'blue',
       paddingHorizontal: 30,
       flex: 1,
       flexDirection: 'column',
@@ -50,19 +48,15 @@ export default function FriendProfileHistory({ username, id, imageUrl, showUsern
     },
     name: {
       fontSize: 16,
-      // fontWeight: 'bold',
       marginTop:10,
       marginBottom: 10,
-      // backgroundColor:'green'
     },
     info: {
       alignItems: 'center',
       paddingHorizontal: 30,
       flexDirection: 'row',
-      // backgroundColor:'blue'
     },
     image: {
-      // backgroundColor: 'red',
       resizeMode: 'contain',
       height: '100%',
       width: '100%',

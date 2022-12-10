@@ -69,7 +69,6 @@ const friendData = [
   {
       id: '6',
       username: 'Aaron',
-      // imageUrl: require('./assets/images/companions/cat.png'),
       imageUrl: require('./../../../assets/images/companions/SB_dog_white.png'),
       stopLightColor:'green',
       status: 'This year',
@@ -91,7 +90,15 @@ const friendData = [
       stopLightColor:'green',
       status: 'This year',
       reachedOut: 'them'
-  }
+  },
+  {
+    id: '8',
+    username: 'Amy',
+    imageUrl: require('./../../../assets/images/companions/SB_cat.png'),
+    stopLightColor:'green',
+    status: 'This year',
+    reachedOut: 'you'
+},
 ];
 
 export default function History({ navigation, route }:Props<"History">) {
@@ -110,7 +117,7 @@ export default function History({ navigation, route }:Props<"History">) {
     // console.log(status)
   }
 
-  const renderFriendProfileHistory = ({ item, index }) => {
+  const renderFriendProfileHistory = ({ item, index }:{item:typeof friendData[0], index:number}) => {
     return (
         <FriendProfileHistory
             username={item.username}
@@ -127,7 +134,7 @@ export default function History({ navigation, route }:Props<"History">) {
     <SafeAreaView style={styles.topLevel} edges={["left", "right", "top"]}>
       <StruggleBusHeader></StruggleBusHeader>
       <View style={styles.kudosMoodContainer}>
-        <ActionButtonHistory onPress={()=>{navigation.navigate('KudoScreen')}} title="Kudos"></ActionButtonHistory>
+        <ActionButtonHistory onPress={()=>{navigation.navigate('KudoScreen', {showDialog:false})}} title="Kudos"></ActionButtonHistory>
         <ActionButtonHistory onPress={()=>{navigation.navigate('MoodScreen')}} title="Mood"></ActionButtonHistory> 
       </View>
 

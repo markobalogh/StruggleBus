@@ -37,7 +37,7 @@ export type RootStackParamList = {
   Chat: FriendData;
   Onboarding: undefined;
   MoodScreen: undefined;
-  KudoScreen: undefined;
+  KudoScreen: {username?:string,imageUrl?:any, showDialog:boolean}
 };
 
 declare global {

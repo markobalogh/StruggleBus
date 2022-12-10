@@ -46,17 +46,8 @@ export default function KudoScreen({ navigation }:Props<"KudoScreen">) {
 
     const renderTodo = ({ item }) => {
       return <KudosPost 
-              username={'Alice'} imageUrl={require("./../../../assets/images/companions/SB_panda.png")} kudostext={item.text}/>;
+              username={route.params.username} imageUrl={require("./../../../assets/images/companions/SB_bird.png")} kudostext={item} direction={'To'}/>;
     };
-
-    
-
-    // let contentDisplayed;
-    // if (true) {
-    //   contentDisplayed = 
-    // } else{
-    //   contentDisplayed = <View style={styles.list}></View>
-    // }
 
 
   return (
@@ -71,7 +62,7 @@ export default function KudoScreen({ navigation }:Props<"KudoScreen">) {
         
         <View>
         <KudosPost 
-              username={'Roy'} imageUrl={require("./../../../assets/images/companions/SB_bunny.png")} kudostext={InitialText}/>
+              username={'George'} imageUrl={require("./../../../assets/images/companions/SB_cat.png")} kudostext={InitialText} direction={'From'}/>
         </View>
 
         <FlatList
@@ -80,22 +71,26 @@ export default function KudoScreen({ navigation }:Props<"KudoScreen">) {
           keyExtractor={(item, index) => item + index}
         />
 
-        <View style={styles.list}>
-          <Dialog.Container 
+        {route.params.showDialog ? 
+          <View style={styles.list}>
+            <Dialog.Container 
                 visible={visible} 
                 onBackdropPress={noDialog}
                 contentStyle={styles.list}
                 >
-                <Dialog.Title>To Roy</Dialog.Title>
+                <Dialog.Title>To {route.params.username}</Dialog.Title>
                 <Dialog.Description>
-                Send a quick 'thank you' message to Roy
+                Send a quick 'thank you' message to {route.params.username}
                 </Dialog.Description>
                 <AutoGrowTextInput onChangeText={(newText) => setText(newText)}
                           value={text} style={styles.nameInput} multiline={true} returnKeyType="done">
                 </AutoGrowTextInput>
                 <Dialog.Button label="Send Kudos" onPress={noDialog} />
             </Dialog.Container>
-        </View>
+          </View> 
+          :
+           null
+        }
         </View>
         <View style={styles.kudosButton}>
           <FriendKudosButton title="write kudos" onPress={navigation.goBack} />
@@ -132,7 +127,7 @@ const styles = StyleSheet.create({
   nameInput: {
     ...fonts.handwriting,
     fontSize:18,
-    color: 'white',
+    color: ,
     textAlign:'center',
     width: '90%',
   },

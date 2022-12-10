@@ -99,7 +99,7 @@ export default function FriendsScreen({ navigation, route }:Props<"FriendsScreen
             <StruggleBusHeader></StruggleBusHeader>
             <View style={styles.friendContainer}>
                 <Text style={styles.name}>Friends</Text>
-                <ActionButton style={styles.addFriend} textStyle={styles.addFriendText} title="Add Friend" onPress={()=>{navigation.navigate('ContactsScreen')}}></ActionButton>
+                <ActionButton style={styles.addFriend} textStyle={styles.addFriendText} title="Add Friend" onPress={()=>{}}></ActionButton>
             </View>
                 <FlatList
                     columnWrapperStyle={{justifyContent:'space-around'}}

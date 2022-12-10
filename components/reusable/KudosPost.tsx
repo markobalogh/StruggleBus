@@ -10,15 +10,15 @@ import {
 import { theme } from '../../theme';
 import { fonts } from '../../typography';
   
-export default function KudosPost({imageUrl, username, kudostext}) {
+export default function KudosPost({imageUrl, username, kudostext, direction}) {
 
     return (
-        <View style={styles.kudosPost}>
+        <View style={[styles.kudosPost, direction === "To" ? {alignSelf:'flex-end'} : {alignSelf:'flex-start'}]}>
             <View style={styles.header}>
                 <View style={styles.friendPic}>
                     <Image style={styles.image} source={imageUrl} />
                 </View>
-                <Text style={styles.headerFont}>From {username}</Text>
+                <Text style={styles.headerFont}> {direction} {username}</Text>
             </View>
 
             <View style={styles.headerLine}>
@@ -46,18 +46,14 @@ export default function KudosPost({imageUrl, username, kudostext}) {
     header: {
         flexDirection: 'row',
         alignItems: 'center',
-        // justifyContent: 'space-between'
     },
     friendPic: {
         width:theme.iconSize,
         height:theme.iconSize,
         borderRadius: 100,
-        // backgroundColor: 'red',
-        borderColor: theme.colors.action,
-        // borderWidth: 2,     
+        borderColor: theme.colors.action,   
         marginHorizontal:  Dimensions.get('window').height / 80, 
         marginVertical:  Dimensions.get('window').height / 90, 
-        // resizeMode: 'contain',
     },
     headerLine: {
         width: Dimensions.get('window').width / 1.5,
