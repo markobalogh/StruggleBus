@@ -11,6 +11,12 @@ export const fonts = StyleSheet.create({
     lineHeight: 25,
     letterSpacing:2
   },
+  bodyContact: {
+    fontFamily: 'Montserrat',
+    fontSize: 24,
+    lineHeight: 25,
+    letterSpacing:2
+  },
   header: {
     fontFamily: 'Nunito-Sans-ExtraBold',
     fontSize:30

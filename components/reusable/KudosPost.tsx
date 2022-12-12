@@ -1,4 +1,3 @@
-// import ImagedCardView from "react-native-imaged-card-view";
 import {
     StyleSheet,
     Text,

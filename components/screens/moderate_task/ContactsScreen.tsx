@@ -13,20 +13,20 @@ import ActionButton from '../../reusable/buttons/ActionButton';
 const friendData = [
     {
         id: '1',
-        username: 'George',
-        imageUrl: './assets/images/companions/cat.png',
+        username: 'Marko',
+        imageUrl: require('./../../../assets/images/companions/SB_cat.png'),
         number: '6503829556'
     },
     {
         id: '2',
-        username: 'Alice',
-        imageUrl: './assets/images/companions/cat.png',
+        username: 'Thanh',
+        imageUrl: require('./../../../assets/images/companions/SB_bird.png'),
         number: '6503829556'
     },
     {
         id: '3',
-        username: 'Aaron',
-        imageUrl: './assets/images/companions/cat.png',
+        username: 'Michelle',
+        imageUrl: require('./../../../assets/images/companions/SB_panda.png'),
         number: '6503829556'
     },
 ];

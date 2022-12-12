@@ -23,7 +23,6 @@ const friendData = [
   {
       id: '1',
       username: 'George',
-      // imageUrl: require('./assets/images/companions/cat.png'),
       imageUrl: require('./../../../assets/images/companions/SB_cat.png'),
       stopLightColor:'red',
       status: 'This week',
@@ -32,7 +31,6 @@ const friendData = [
   {
       id: '2',
       username: 'Hannah',
-      // imageUrl: require('./assets/images/companions/cat.png'),
       imageUrl: require('./../../../assets/images/companions/SB_panda.png'),
       stopLightColor:'red',
       status: 'This month',
@@ -41,7 +39,6 @@ const friendData = [
   {
       id: '3',
       username: 'Roy',
-      // imageUrl: require('./assets/images/companions/cat.png'),
       imageUrl: require('./../../../assets/images/companions/SB_bird.png'),
       stopLightColor:'yellow',
       status: 'This week',
@@ -51,7 +48,6 @@ const friendData = [
   {
       id: '4',
       username: 'Jenny',
-      // imageUrl: require('./assets/images/companions/cat.png'),
       imageUrl: require('./../../../assets/images/companions/SB_bunny.png'),
       stopLightColor:'yellow',
       status: 'This month',
@@ -60,7 +56,6 @@ const friendData = [
   {
       id: '5',
       username: 'Alice',
-      // imageUrl: require('./assets/images/companions/cat.png'),
       imageUrl: require('./../../../assets/images/companions/SB_panda.png'),
       stopLightColor:'yellow',
       status: 'This month',
