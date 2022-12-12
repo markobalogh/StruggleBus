@@ -1,62 +1,60 @@
-import React, { useEffect, useState } from "react";
-import {FlatList, View, Text, StyleSheet} from 'react-native';
-import { Props } from "../../App";
-import StruggleBusHeader from "../reusable/StruggleBusHeader";
+import React, { Component } from 'react';
+import Accordion from 'react-native-collapsible/Accordion';
 
+const SECTIONS = [
+  {
+    title: 'First',
+    content: 'Lorem ipsum...',
+  },
+  {
+    title: 'Second',
+    content: 'Lorem ipsum...',
+  },
+];
 
-const data = {
-    title: "FAQ (How it works)",
-    rows: [
-        {
-            title: "Lorem ipsum dolor sit amet,",
-            content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed tempor sem. Aenean vel turpis feugiat,
-              ultricies metus at, consequat velit. Curabitur est nibh, varius in tellus nec, mattis pulvinar metus.
-              In maximus cursus lorem, nec laoreet velit eleifend vel. Ut aliquet mauris tortor, sed egestas libero interdum vitae.
-              Fusce sed commodo purus, at tempus turpis.`,
-        },
-        {
-            title: "Nunc maximus, magna at ultricies elementum",
-            content:
-                "Nunc maximus, magna at ultricies elementum, risus turpis vulputate quam, vitae convallis ex tortor sed dolor.",
-        },
-        {
-            title: "Curabitur laoreet, mauris vel blandit fringilla",
-            content: `Curabitur laoreet, mauris vel blandit fringilla, leo elit rhoncus nunc, ac sagittis leo elit vel lorem.
-            Fusce tempor lacus ut libero posuere viverra. Nunc velit dolor, tincidunt at varius vel, laoreet vel quam.
-            Sed dolor urna, lobortis in arcu auctor, tincidunt mattis ante. Vivamus venenatis ultricies nibh in volutpat.
-            Cras eu metus quis leo vestibulum feugiat nec sagittis lacus.Mauris vulputate arcu sed massa euismod dignissim. `,
-        },
-        {
-            title: "What is the package version",
-            content: <p>current version is 1.2.1</p>,
-        },
-    ],
-};
+class AccordionView extends Component {
+  state = {
+    activeSections: [],
+  };
 
-const styles = {
-    // bgColor: 'white',
-    titleTextColor: "blue",
-    rowTitleColor: "blue",
-    // rowContentColor: 'grey',
-    // arrowColor: "red",
-};
-
-const config = {
-    // animate: true,
-    // arrowIcon: "V",
-    // tabFocus: true
-};
-
-export default function FAQScreen ({ navigation }:Props<"FAQScreen">) {
-
+  _renderSectionTitle = (section) => {
     return (
-        <View>
-            <StruggleBusHeader></StruggleBusHeader>
-            <Faq
-                data={data}
-                styles={styles}
-                config={config}
-            />
-        </View>
+      <View style={styles.content}>
+        <Text>{section.content}</Text>
+      </View>
     );
+  };
+
+  _renderHeader = (section) => {
+    return (
+      <View style={styles.header}>
+        <Text style={styles.headerText}>{section.title}</Text>
+      </View>
+    );
+  };
+
+  _renderContent = (section) => {
+    return (
+      <View style={styles.content}>
+        <Text>{section.content}</Text>
+      </View>
+    );
+  };
+
+  _updateSections = (activeSections) => {
+    this.setState({ activeSections });
+  };
+
+  render() {
+    return (
+      <Accordion
+        sections={SECTIONS}
+        activeSections={this.state.activeSections}
+        renderSectionTitle={this._renderSectionTitle}
+        renderHeader={this._renderHeader}
+        renderContent={this._renderContent}
+        onChange={this._updateSections}
+      />
+    );
+  }
 }
